@@ -2,7 +2,6 @@ import React from "react";
 import {Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-
 import Auction from "./pages/Auction";
 import Bets from "./pages/Bets";
 import BetTypes from "./pages/BetTypes";
@@ -10,6 +9,7 @@ import Breeding from "./pages/Breeding";
 import Earnings from "./pages/Earnings.js";
 import FAQs from "./pages/FAQs";
 import Gear from "./pages/Gear";
+import History from "./pages/History.js";
 import Home from "./pages/Home";
 import Horse from "./pages/Horse";
 import HorseTraining from "./pages/HorseTraining";
@@ -35,9 +35,9 @@ import Tutorial from "./pages/Tutorial";
 function App() {
      return (
      <>
-       <div className='test'>This is the App.js Page with the routes and Navbar</div>
+       <div className='test'></div>
       <Navbar />
-      <Routes>
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/race" element={<Race />} />
         <Route path="/horse" element={<Horse />} />
@@ -49,6 +49,7 @@ function App() {
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/gear" element={<Gear />} />
         <Route path="/type-of-bets" element={<BetTypes />} />
+        <Route path="/history" element={<History/>}/>
         <Route path="/instructions" element={<Instructions />} />
         <Route path="/news" element={<News />} />
         <Route path="/tutorial" element={<Tutorial />} />
