@@ -1,11 +1,11 @@
 import React from 'react';
 
-function HomePage(props) {
+function Earnings(props) {
     return (
         <div>
-            HOME PAGE
+            Earnings
         </div>
     );
 }
 
-export default HomePage;
+export default Earnings;

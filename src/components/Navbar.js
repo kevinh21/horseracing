@@ -1,233 +1,90 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import "./Navbar.css";
 
 const Navbar = () => {
+  
   return (
-    <nav className="navbar">
-      <Link to="/" className="navbar__logo">
-        Horse Racing Game
-      </Link>
-      <ul className="navbar__menu">
-        <li className="navbar__item">
-          <NavLink to="/" className="navbar__link" activeClassName="active">
-            Home
-          </NavLink>
-        </li>
+    <>
+      <div className="nav-wrapper">
 
-        <ul className="navbar__dropdown">
-          AUCTIOIN MENU
-          <li className="navbar__item">
-            <NavLink
-              to="/auction"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Auction
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/auction/:id/bid"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Auction Bid
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/auction/list"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Auction List
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/auction/search"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Auction Search
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/auction/sell"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Auction Sell
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/auction/:id"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Auction Item
-            </NavLink>
-          </li>
+        <ul className='menu-list dropdown'>HORSE MENU
+        <ul className='dropdown'>
+        <li> <NavLink exact to="/" activeClassName="active">Home</NavLink> </li>
+        <li> <NavLink to="/race" activeClassName="active">Race</NavLink> </li>
+        <li> <NavLink to="/horse" activeClassName="active">Horse</NavLink> </li>
         </ul>
+          </ul>
+          <ul className='menu-list dropdown'>JOCKEY MENU
+        <ul className='dropdown'>
+        <li> <NavLink to="/jockey" activeClassName="active">Jockey</NavLink> </li>
+        <li> <NavLink to="/auction" activeClassName="active">Auction</NavLink> </li>
+        <li> <NavLink to="/bets" activeClassName="active">Bets</NavLink> </li>
+        <li> <NavLink to="/breeding" activeClassName="active">Breeding</NavLink> </li>
+        </ul>
+        </ul>
+       <ul className='menu-list dropdown'>TRACK MENU
+       <ul className='dropdown'>
+        <li> <NavLink to="/earnings" activeClassName="active">Earnings</NavLink> </li>
+        <li> <NavLink to="/faqs" activeClassName="active">FAQs</NavLink> </li>
+        <li> <NavLink to="/gear" activeClassName="active">Gear</NavLink> </li>
+        <li> <NavLink to="/type-of-bets" activeClassName="active">Type of Bets</NavLink> </li>
+        <li> <NavLink to="/history" activeClassName="active">History</NavLink> </li>
+        </ul>
+          </ul>
+          <ul className='menu-list dropdown'>ACTIVITY MENU
+        <ul className='dropdown'>
+        <li> <NavLink to="/instructions" activeClassName="active">Instructions</NavLink> </li>
+        <li> <NavLink to="/news" activeClassName="active">News</NavLink> </li>
+        <li> <NavLink to="/tutorial" activeClassName="active">Tutorial</NavLink> </li>
+        <li> <NavLink to="/learn-about-racing" activeClassName="active">Learn About Racing</NavLink> </li>
+        </ul>
+          </ul>
 
-        <ul className="navbar__dropdown">
-          BETTING MENU
-          <li className="navbar__item">
-            <NavLink
-              to="/leaderboard"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Leaderboard
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/betting"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Betting
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/race-track"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Race Track
-            </NavLink>
-          </li>
-        </ul>
-        <ul className="navbar__dropdown">
-          ACTIVITY MENU
-          <li className="navbar__item">
-            <NavLink
-              to="/training"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Training
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/horse-marketplace"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Marketplace
-            </NavLink>
-          </li>
-        </ul>
+        <ul className='menu-list dropdown'>TRACK MENU
+        <ul className='dropdown'>
 
-        <ul className="navbar__dropdown">
-          HORSE MENU
-          <li className="navbar__item">
-            <NavLink
-              to="/breeding"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Breeding
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/create-horse"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Create Horse
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/horse-profile/:id"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Horse Profile
-            </NavLink>
-          </li>
+        <li> <NavLink to="/payouts" activeClassName="active">Payouts</NavLink> </li>
+        <li> <NavLink to="/owner" activeClassName="active">Owner</NavLink> </li>
+        <li> <NavLink to="/trainer" activeClassName="active">Trainer</NavLink> </li>
+        <li> <NavLink to="/race-track" activeClassName="active">Race Track</NavLink> </li>
         </ul>
+          </ul>
 
-        <ul className="navbar__dropdown">
-          MY PROFILE
-          <li className="navbar__item">
-            <NavLink
-              to="/settings"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Settings
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/profile"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              My Profile
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/editprofile"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Edit Profile
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              to="/forgot-password"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Forgot Password
-            </NavLink>
-          </li>
-        </ul>
-        <ul>
-          <li className="navbar__item">
-            <NavLink
-              to="/login"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Login
-            </NavLink>
-          </li>
+       <ul className='menu-list dropdown'>DASHBOARD MENU     
+       <ul className='dropdown'>
 
-          <li className="navbar__item">
-            <NavLink
-              to="/signup"
-              className="navbar__link"
-              activeClassName="active"
-            >
-              Signup
-            </NavLink>
-          </li>
+        <li> <NavLink to="/horse-training" activeClassName="active">Horse Training</NavLink> </li>
+        <li> <NavLink to="/signup" activeClassName="active">Sign Up</NavLink> </li>
+        <li> <NavLink to="/profile" activeClassName="active">Profile</NavLink> </li>
+        <li> <NavLink to="/profileEdit" activeClassName="active">Edit Profile</NavLink> </li>
+        <li> <NavLink to="/leaderboard" activeClassName="active">Leaderboard</NavLink> </li>
         </ul>
-        <li className="navbar__item">
-          <NavLink
-            to="/contact"
-            className="navbar__link"
-            activeClassName="active"
-          >
-            Contact Us
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
+          </ul>
+        
+        <ul className='menu-list dropdown'>TRACK MENU     
+        <ul className='dropdown'>
+
+        <li> <NavLink to="/login" activeClassName="active">Log In</NavLink> </li>
+        <li> <NavLink to="/race-results" activeClassName="active">Race Results</NavLink> </li>
+        <li> <NavLink to="/statistics" activeClassName="active">Statistics</NavLink> </li>
+        </ul>
+          </ul>
+
+        <ul className='menu-list dropdown'>STATISTICS MENU
+        <ul className='dropdown'>
+
+        <li> <NavLink to="/jockey" activeClassName="active">Jockey</NavLink> </li>
+        <li> <NavLink to="/auction" activeClassName="active">Auction</NavLink> </li>
+        </ul>
+          </ul>
+      </div> 
+    </>
   );
 };
 
 export default Navbar;
+
+
+
+

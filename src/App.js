@@ -1,61 +1,73 @@
-import React from 'react';
-import { Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar';
+import React from "react";
+import {Routes, Route } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
 
-// Import all the components/pages/modules for the game
-import HomePage from "./pages/HomePage";
-import AuctionModule from "./modules/AuctionModule";
-import AuctionList from "./components/auction/AuctionList";
-import AuctionItem from "./components/auction/AuctionItem";
-import AuctionBidForm from "./components/auction/AuctionBidForm";
-import AuctionSellForm from "./components/auction/AuctionSellForm";
-import AuctionSearch from "./components/auction/AuctionSearch";
-import AuthenticationForm from "./components/AuthenticationForm";
-import BettingModule from "./modules/BettingModule";
-import BreedingModule from "./modules/BreedingModule";
-import ContactForm from "./components/ContactForm";
-import CreateHorsePage from "./pages/CreateHorsePage";
-import ForgotPasswordForm from "./components/auth/ForgotPasswordForm";
-import HorseMarketplacePage from "./pages/HorseMarketplacePage";
-import HorseProfilePage from "./pages/HorseProfilePage";
-import LeaderboardTable from "./components/LeaderboardTable";
-import ProfileCard from "./components/ProfileCard";
-import ProfileEditForm from "./components/profile/ProfileEditForm";
-import RaceTrackPage from "./pages/RaceTrackPage";
-import SettingsForm from "./components/SettingsForm";
-import SignupForm from "./components/auth/SignupForm";
-import TrainingModule from "./modules/TrainingModule";
+import Auction from "./pages/Auction";
+import Bets from "./pages/Bets";
+import BetTypes from "./pages/BetTypes";
+import Breeding from "./pages/Breeding";
+import Earnings from "./pages/Earnings.js";
+import FAQs from "./pages/FAQs";
+import Gear from "./pages/Gear";
+import Home from "./pages/Home";
+import Horse from "./pages/Horse";
+import HorseTraining from "./pages/HorseTraining";
+import Instructions from "./pages/Instructions";
+import Jockey from "./pages/Jockey";
+import Leaderboard from "./pages/Leaderboard";
+import LearnAboutRacing from "./pages/LearnAboutRacing";
+import LoginForm from "./components/auth/LoginForm";
+import News from "./pages/News.js";
+import Owner from "./pages/Owner";
+import Payouts from "./pages/Payouts";
+import Profile from "./components/profile/Profile";
+import ProfileEdit from "./components/profile/ProfileEditForm";
+import Race from "./pages/Race";
+import RaceResults from "./pages/RaceResults";
+import RaceTrack from "./pages/RaceTrackPage";
+import Signup from "./components/auth/SignupForm";
+import Statistics from "./pages/Statistics";
+import Trainer from "./pages/Trainer";
+import Tutorial from "./pages/Tutorial";
+
 
 function App() {
-  return (
-    <>
-    <div className='test'>This is the App.js Page with the routes and Navbar</div>
-    <Navbar />
+     return (
+     <>
+       <div className='test'>This is the App.js Page with the routes and Navbar</div>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auction" element={<AuctionModule />} />
-        <Route path="/auction/:id/bid" element={<AuctionBidForm />} />
-        <Route path="/auction/list" element={<AuctionList />} />
-        <Route path="/auction/search" element={<AuctionSearch />} />
-        <Route path="/auction/sell" element={<AuctionSellForm />} />
-        <Route path="/auction/:id" element={<AuctionItem />} />
-        <Route path="/login" element={<AuthenticationForm />} />
-        <Route path="/betting" element={<BettingModule />} />
-        <Route path="/breeding" element={<BreedingModule />} />
-        <Route path="/create-horse" element={<CreateHorsePage />} />
-        <Route path="/contact" element={<ContactForm />} />
-        <Route path="/horse-profile/:id" element={<HorseProfilePage />} />
-        <Route path="/leaderboard" element={<LeaderboardTable />} />
-        <Route path="/profile" element={<ProfileCard />} />
-        <Route path="/editprofile" element={<ProfileEditForm/>} />
-        <Route path="/race-track" element={<RaceTrackPage />} />
-        <Route path="/settings" element={<SettingsForm />} />
-        <Route path="/training" element={<TrainingModule />} />
-        <Route path="/signup" element={<SignupForm />} />
-        <Route path="/forgot-password" element={<ForgotPasswordForm />} />
-        <Route path="/horse-marketplace" element={<HorseMarketplacePage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/race" element={<Race />} />
+        <Route path="/horse" element={<Horse />} />
+        <Route path="/jockey" element={<Jockey />} />
+        <Route path="/auction" element={<Auction />} />
+        <Route path="/bets" element={<Bets />} />
+        <Route path="/breeding" element={<Breeding />} />
+        <Route path="/earnings" element={<Earnings />} />
+        <Route path="/faqs" element={<FAQs />} />
+        <Route path="/gear" element={<Gear />} />
+        <Route path="/type-of-bets" element={<BetTypes />} />
+        <Route path="/instructions" element={<Instructions />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/tutorial" element={<Tutorial />} />
+        <Route path="/learn-about-racing" element={<LearnAboutRacing />} />
+        <Route path="/payouts" element={<Payouts />} />
+        <Route path="/owner" element={<Owner />} />
+        <Route path="/trainer" element={<Trainer />} />
+        <Route path="/race-track" element={<RaceTrack />} />
+        <Route path="/horse-training" element={<HorseTraining />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profileEdit" element={<ProfileEdit />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/race-results" element={<RaceResults />} />
+        <Route path="/statistics" element={<Statistics />} />
       </Routes>
       </>
-      );
+);  
 }
- export default App;
+
+export default App;

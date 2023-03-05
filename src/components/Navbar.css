@@ -1,35 +1,373 @@
-.navbar {
+.nav-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .menu-list {
+    display: inline-block;
+    margin: 0 10px;
+    position: relative;
+  }
+  
+  .menu-list:hover ul.dropdown {
+    display: block;
+  }
+  
+  .menu-list ul.dropdown {
+    display: none;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .menu-list ul.dropdown li {
+    padding: 10px;
+  }
+  
+  .menu-list ul.dropdown li a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .menu-list ul.dropdown li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .menu-list.dropdown ul.dropdown:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px solid transparent;
+    border-bottom-color: #fff;
+  }
+  
+  .menu-list.dropdown ul.dropdown:after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    margin-left: -6px;
+    border: 6px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  
+
+
+
+
+  
+/* nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    font-family: Arial;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    margin: 10px;
+  }
+  
+  nav a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  nav a:hover {
+    background-color: #555;
+  }
+  
+  nav a.active {
+    background-color: #ccc;
+    color: #333;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    color: #333;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+   */
+
+/* ============================================================ */
+
+/* 
+
+
+
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background-color: #1b1b1b;
-    color: #fff;
+    background-color: #333;
+    color: white;
+    font-size: 1.2rem;
+    height: 4rem;
+    padding: 0 2rem;
   }
   
-  .navbar__logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .navbar__menu {
+  nav ul {
     display: flex;
-    list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
   }
   
-  .navbar__item {
+  nav ul li {
     margin: 0 1rem;
+    position: relative;
   }
   
-  .navbar__link {
-    color: #fff;
+  nav ul li:hover {
+    background-color: #444;
+  }
+  
+  nav ul li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    z-index: 1;
+    background-color: #333;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+  }
+  
+  nav ul li:hover ul {
+    display: block;
+  }
+  
+  nav ul li ul li {
+    margin: 0;
+  }
+  
+  nav ul li ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
     text-decoration: none;
+  }
+  
+  nav ul li ul li a:hover {
+    background-color: #444;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  nav a:hover {
+    background-color: #444;
   }
   
   .active {
-    font-weight: bold;
-    border-bottom: 2px solid #fff;
+    background-color: #444;
   }
   
+
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+/* Navbar.css
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 10px;
+    position: relative;
+  }
+  
+  nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav li {
+    margin: 0 10px;
+    position: relative;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #444;
+  }
+  
+  nav ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1;
+  }
+  
+  nav ul li:hover > ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  nav ul ul li {
+    margin: 0;
+    position: relative;
+  }
+  
+  nav ul ul a {
+    font-size: 16px;
+  }
+  
+  nav ul ul ul {
+    left: 100%;
+    top: 0;
+  }
+  
+  .active {
+    background-color: #444;
+  }
+   */
+
+
+
+
+
+
+
+
+/* Navbar.css
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 10px;
+    position: relative;
+  }
+  
+  nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav li {
+    margin: 0 10px;
+    position: relative;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  nav a:hover {
+    background-color: #444;
+  }
+  
+  nav ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #222;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1;
+  }
+  
+  nav ul li:hover > ul {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  nav ul ul li {
+    margin: 0;
+    position: relative;
+  }
+  
+  nav ul ul a {
+    font-size: 16px;
+  }
+  
+  nav ul ul ul {
+    left: 100%;
+    top: 0;
+  }
+  
+  .active {
+    background-color: #444;
+  }
+   */
