@@ -1,0 +1,18 @@
+CREATE TABLE Race_Horses (
+  horse_id INTEGER PRIMARY KEY AUTOINCREMENT,
+  performance_races_run INTEGER,
+  performance_wins INTEGER,
+  performance_top_three_finishes INTEGER,
+  performance_win_percentage DECIMAL(4, 2),
+  performance_place_percentage DECIMAL(4, 2),
+  performance_show_percentage DECIMAL(4, 2),
+  earnings_total_earnings DECIMAL(10, 2),
+  earnings_earnings_per_start DECIMAL(10, 2),
+  breeding_sire TEXT,
+  breeding_dam TEXT,
+  breeding_dams_sire TEXT,
+  physical_height DECIMAL(4, 2),
+  physical_weight DECIMAL(5, 2),
+  physical_color TEXT,
+  physical_markings TEXT
+);
