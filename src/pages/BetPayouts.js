@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Payouts(props) {
+function BetPayouts(props) {
     return (
         <div>
             Pay outs
@@ -8,4 +8,4 @@ function Payouts(props) {
     );
 }
 
-export default Payouts;
+export default BetPayouts;

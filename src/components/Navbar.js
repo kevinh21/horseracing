@@ -19,9 +19,17 @@ const Navbar = () => {
         <ul className='menu-list dropdown'>JOCKEY 
         <ul className='dropdown'>
         <li> <NavLink to="/jockey" activeClassName="active">Jockey</NavLink> </li>
-        <li> <NavLink to="/jockey-history" activeClassName="active">History</NavLink> </li>
+        <li> <NavLink to="/jockey-History" activeClassName="active">History</NavLink> </li>
         <li> <NavLink to="/jockey-stats" activeClassName="active">Stats</NavLink> </li>
         <li> <NavLink to="/jockey-style" activeClassName="active">Style</NavLink> </li>
+        </ul>
+        </ul>
+        <ul className='menu-list dropdown'>TRACK 
+        <ul className='dropdown'>    
+        <li> <NavLink to="/race-track" activeClassName="active">Track</NavLink> </li>
+        <li> <NavLink to="/track-type" activeClassName="active">Track Type</NavLink> </li>
+        <li> <NavLink to="/history" activeClassName="active">History</NavLink> </li>
+        <li> <NavLink to="/track-conditions" activeClassName="active">Conditions</NavLink> </li>      
         </ul>
         </ul>
          <ul className='menu-list dropdown'>TRAINER      
@@ -32,14 +40,7 @@ const Navbar = () => {
         <li> <NavLink to="/trainer-history" activeClassName="active">History</NavLink> </li>
                </ul>
           </ul>
-          <ul className='menu-list dropdown'>TRACK 
-        <ul className='dropdown'>    
-        <li> <NavLink to="/race-track" activeClassName="active">Track</NavLink> </li>
-        <li> <NavLink to="/track-type" activeClassName="active">Type</NavLink> </li>
-        <li> <NavLink to="/history" activeClassName="active">History</NavLink> </li>
-        <li> <NavLink to="/weather" activeClassName="active">Weather</NavLink> </li>      
-        </ul>
-        </ul>
+     
        <ul className='menu-list dropdown'>RACE 
        <ul className='dropdown'>
        <li> <NavLink to="/race" activeClassName="active">Race</NavLink> </li>
@@ -51,9 +52,9 @@ const Navbar = () => {
        <ul className='menu-list dropdown'>BETTING 
        <ul className='dropdown'>
        <li> <NavLink to="/bets" activeClassName="active">Bets</NavLink> </li>
-        <li> <NavLink to="/type-of-bets" activeClassName="active">Bet Types</NavLink> </li>
-        <li> <NavLink to="/payouts" activeClassName="active">Payouts</NavLink> </li>
-        <li> <NavLink to="/odds" activeClassName="active">ODDS</NavLink> </li>
+        <li> <NavLink to="/bet-types" activeClassName="active">Bet Types</NavLink> </li>
+        <li> <NavLink to="/bet-payouts" activeClassName="active">Payouts</NavLink> </li>
+        <li> <NavLink to="/bet-odds" activeClassName="active">ODDS</NavLink> </li>
         </ul>
         </ul>
         <ul className='menu-list dropdown'>AUCTION 
