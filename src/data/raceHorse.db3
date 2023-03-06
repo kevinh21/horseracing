@@ -14,5 +14,6 @@ CREATE TABLE Race_Horses (
   physical_height DECIMAL(4, 2),
   physical_weight DECIMAL(5, 2),
   physical_color TEXT,
-  physical_markings TEXT
+  physical_markings TEXT,
+  medical
 );
