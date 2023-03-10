@@ -38,7 +38,8 @@ const Navbar = () => {
         <li> <NavLink to="/trainer-stats" activeClassName="active">Stats</NavLink> </li>
         <li> <NavLink to="/trainer-style" activeClassName="active">Style</NavLink> </li>
         <li> <NavLink to="/trainer-history" activeClassName="active">History</NavLink> </li>
-               </ul>
+        <li> <NavLink to="/create-horse-page" activeClassName="active">Create Horse</NavLink></li>
+          </ul>
           </ul>
      
        <ul className='menu-list dropdown'>RACE 

@@ -1,0 +1,184 @@
+
+/* Set up initial styling for horses */
+.horse {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: brown;
+  border-radius: 50%;
+  animation-name: run;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* Position each horse at a different starting point */
+.horse:nth-of-type(1) {
+  top: 10%;
+  left: 5%;
+}
+.horse:nth-of-type(2) {
+  top: 20%;
+  left: 10%;
+}
+.horse:nth-of-type(3) {
+  top: 30%;
+  left: 15%;
+}
+.horse:nth-of-type(4) {
+  top: 40%;
+  left: 20%;
+}
+.horse:nth-of-type(5) {
+  top: 50%;
+  left: 25%;
+}
+.horse:nth-of-type(6) {
+  top: 60%;
+  left: 30%;
+}
+.horse:nth-of-type(7) {
+  top: 70%;
+  left: 35%;
+}
+.horse:nth-of-type(8) {
+  top: 80%;
+  left: 40%;
+}
+.horse:nth-of-type(9) {
+  top: 90%;
+  left: 45%;
+}
+.horse:nth-of-type(10) {
+  top: 95%;
+  left: 50%;
+}
+
+/* Define the run animation */
+@keyframes run {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(100%);}
+}
+
+
+
+
+
+/* .App {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-top: 0;
+  }
+  
+  p {
+    font-size: 20px;
+  }
+  
+  .horse-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .horse-selection > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+  
+  .horse-selection > div.selected {
+    background-color: #eee;
+  }
+  
+  .horse-selection > div > p {
+    font-size: 24px;
+    margin: 10px;
+  }
+  
+  .horse-selection > div > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  button {
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .track {
+    position: relative;
+    height: 200px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .horse {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #007bff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: left 10s linear;
+  }
+  
+  .horse > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ol > li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  ol > li > p {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  ol > li > img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+   */

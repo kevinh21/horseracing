@@ -1,0 +1,73 @@
+.leaderboard
+
+CSS for the leaderboard leaderboard that complements the React.js leaderboard I provided earlier:
+
+css
+Copy code
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+  padding: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.form label {
+  margin-right: 1rem;
+}
+
+.form input {
+  margin-right: 1rem;
+}
+
+.track {
+  display: flex;
+  position: relative;
+  height: 5rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 1px solid black;
+}
+
+.horse {
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid black;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leaderboard h2 {
+  margin-bottom: 1rem;
+}
+
+.leaderboard div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard span {
+  margin-right: 1rem;
+/* }
+This CSS includes styles for the form, track, horses, and leaderboard. The display and flex-direction properties are used to position elements in a column and row. The position property is used to position the horses absolutely within the track, while the width property is used to set the width of the track and leaderboard to 100% of the container. Finally, various other properties such as margin, padding, font-size, and font-weight are used to style the elements. */

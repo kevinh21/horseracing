@@ -7,6 +7,7 @@ import Bets from "./pages/Bets";
 import BetTypes from "./pages/BetTypes";
 import BetOdds from "./pages/BetOdds.js";
 import Breeding from "./pages/Breeding";
+import CreateHorsepage from "./pages/CreateHorsePage";
 import Earnings from "./pages/Earnings.js";
 import FAQs from "./pages/FAQs";
 import Gear from "./pages/Gear";
@@ -59,6 +60,7 @@ function App() {
         <Route path="/bet-odds" element={<BetOdds />} />
         <Route path="/bet-payouts" element={<BetPayouts />} />
         <Route path="/breeding" element={<Breeding />} />
+        <Route path="/create-horse-page" element={<CreateHorsepage/>}/>
         <Route path="/earnings" element={<Earnings />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/gear" element={<Gear />} />

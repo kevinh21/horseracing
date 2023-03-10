@@ -1,0 +1,201 @@
+/* BetOdds.css */
+
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Leaderboard and odds container */
+  .leaderboard-odds-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+  }
+  
+  /* Leaderboard and odds header */
+  .leaderboard-odds-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .leaderboard-odds-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .leaderboard-odds-header button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .leaderboard-odds-header button:hover {
+    background-color: #27ae60;
+  }
+  
+  /* Leaderboard and odds body */
+  .leaderboard-odds-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Horse selection */
+  .leaderboard-odds-horse-selection {
+    margin-right: 2rem;
+  }
+  
+  .leaderboard-odds-horse-selection h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .leaderboard-odds-horse-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  /* Horse */
+  .leaderboard-odds-horse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f7f7f7;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .leaderboard-odds-horse:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+  
+  .leaderboard-odds-horse img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+  
+  .leaderboard-odds-horse p {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .leaderboard-odds-horse.selected {
+    background-color: #2ecc71;
+    color: #fff;
+  }
+  
+  .leaderboard-odds-horse.selected:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .leaderboard-odds-horse.selected img {
+    filter: brightness(0) invert(1);
+  }
+  
+  .leaderboard-odds-horse.selected p {
+    color: #fff;
+  }
+  
+  /* Race */
+  .leaderboard-odds-race {
+    position: relative;
+  }
+  
+  /* Track */
+  .leaderboard-odds-track {
+    position:
+    absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 200px;
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Finish line */
+    .leaderboard-odds-finish-line {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 2rem);
+    height: 100%;
+    width: 2rem;
+    background-color: #333;
+    }
+    
+    /* Horse track */
+    .leaderboard-odds-horse-track {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 70%;
+    width: 100%;
+    display: flex;
+    }
+    
+    /* Horse lane */
+    .leaderboard-odds-horse-lane {
+    position: relative;
+    width: calc(100% / 4);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    /* Horse name */
+    .leaderboard-odds-horse-name {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #333;
+    }
+    
+    /* Horse progress */
+    .leaderboard-odds-horse-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #2ecc71;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: width 2s linear;
+    }
+    
+    
+    
+    

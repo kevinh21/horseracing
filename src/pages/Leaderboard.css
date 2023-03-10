@@ -1,0 +1,562 @@
+
+
+body {
+    background-color: #f2f2f2;
+  }
+  
+  .race {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: left;
+    height: 40vh;
+  }
+  
+  .horse {
+    width: 3px;
+    height:3px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 10px;
+  }
+  
+  .horse:before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+  }
+  
+  .track {
+    width: 100%;
+    height: 20px;
+    background-color: #ccc;
+    position: relative;
+    margin-top: 50px;
+  }
+  
+  .track:before {
+    content: "";
+    width: 20px;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+  }
+  
+  /* Animation */
+  @keyframes horse-run {
+    from {left: 0;}
+    to {left: calc(100% - 100px);}
+  }
+  
+  .horse:nth-child(1) { animation: horse-run 16s linear infinite; }
+  .horse:nth-child(2) { animation: horse-run 15s linear infinite 0.5s; }
+  .horse:nth-child(3) { animation: horse-run 17s linear infinite 1s; }
+  .horse:nth-child(4) { animation: horse-run 14s linear infinite 1.5s; }
+  .horse:nth-child(5) { animation: horse-run 12s linear infinite 2s; }
+  .horse:nth-child(6) { animation: horse-run 16s linear infinite 2.5s; }
+  .horse:nth-child(7) { animation: horse-run 6s linear infinite 3s; }
+  .horse:nth-child(8) { animation: horse-run 6s linear infinite 3.5s; }
+  .horse:nth-child(9) { animation: horse-run 6s linear infinite 4s; }
+  .horse:nth-child(10) { animation: horse-run 6s linear infinite 4.5s; }
+  
+
+  /* ================================================================= */
+
+/* .App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  
+  select, input[type="number"] {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    background-color: #fff;
+    outline: none;
+  }
+  
+  select[multiple] {
+    height: 100%;
+    min-width: 150px;
+  }
+  
+  span {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+  
+  button {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .leaderboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .horse {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .horse img {
+    width: 100px;
+    height: 100px;
+    margin-right: 1rem;
+    object-fit: contain;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .info p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  } */
+  /* Some highlights of this CSS include:
+  
+  Setting a consistent font family, size, and color for the whole app
+  Using flexbox to position elements in a responsive and flexible way
+  Styling the form inputs, labels, and buttons to have a consistent look and feel
+  Using transitions and hover effects to add interactivity to the buttons
+  Styling the leaderboard with a gray background, borders, and rounded corners
+  Using flexbox to position the horse image and info in a row, and aligning them to the center
+  Using a larger font size for the horse name and a smaller size for the details
+  
+   */
+  
+  /* ================================================================= */
+
+
+  /* ... repeat for up to 10 horses ... */
+  
+
+/* Set up the container */
+/* .app-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
+   */
+  /* Set up the horse */
+  /* .horse {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: brown;
+    border-radius: 50%;
+    animation-name: move-right;
+    animation-duration: 15s; */
+    /* animation-iteration-count: infinite; */
+    /* animation-iteration-count: 1;
+    animation-timing-function: linear;
+  }
+  
+  /* Set up the animation */
+ /* @keyframes move-right {
+    0% {
+      left: -50px;
+    }
+    100% {
+      left: calc(100% + 50px);
+    }
+  } */
+  
+  /* Position the horses */
+ /* .horse:nth-child(1) {
+    top: 50px;
+  }
+  
+  .horse:nth-child(2) {
+    top: 100px;
+  }
+  
+  .horse:nth-child(3) {
+    top: 150px;
+  }
+  
+  .horse:nth-child(4) {
+    top: 200px;
+  }
+  
+  .horse:nth-child(5) {
+    top: 250px;
+  }
+  
+  .horse:nth-child(6) {
+    top: 300px;
+  }
+  
+  .horse:nth-child(7) {
+    top: 350px;
+  }
+  
+  .horse:nth-child(8) {
+    top: 400px;
+  }
+  
+  .horse:nth-child(9) {
+    top: 450px;
+  }
+  
+  .horse:nth-child(10) {
+    top: 500px;
+  } */
+  
+  /* Reduce the size of the horse */
+  /* .horse {
+    width: 25px;
+    height: 25px;
+  } */
+  
+
+
+
+
+
+
+
+/* Set up initial styling for horses */
+/* .horse {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: brown;
+  border-radius: 50%;
+  animation-name: run;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* Position each horse at a different starting point */
+/* .horse:nth-of-type(1) {
+  top: 0%;
+  left: 0%;
+  height:4%;
+  width: 4%;
+}
+.horse:nth-of-type(2) {
+  top: 5%;
+  left: 3%;
+  height:4%;
+  width: 4%;
+}
+.horse:nth-of-type(3) {
+  top: 12%;
+  left: 15%;
+  height:4%;
+  width: 4%;
+}
+.horse:nth-of-type(4) {
+  top: 4%;
+  left: 20%;
+  height:4%;
+  width: 4%;
+}
+.horse:nth-of-type(5) {
+  top: 55%;
+  left: 25%;
+  height:4%;
+  width: 4%;
+}
+.horse:nth-of-type(6) {
+  top: 40%;
+  left: 30%;
+  height:4%;
+  width: 4%;
+}
+.horse:nth-of-type(7) {
+  top: 46%;
+  left: 35%;
+  height:4%;
+  width: 4%;
+}
+.horse:nth-of-type(8) {
+  top: 43%;
+  left: 40%;
+  height:4%;
+  width: 4%;
+}
+.horse:nth-of-type(9) {
+  top: 53%;
+  left: 45%;
+  height:4%;
+  width: 4%;
+}
+.horse:nth-of-type(10) {
+  top: 47%;
+  left: 50%;
+  height:4%;
+  width: 4%;
+} */
+
+/* Define the run animation */
+/* @keyframes run {
+  0% {transform: translateX(0);}
+  100% {transform: translateX(100%);}
+} */
+
+
+/* =========================================================================== */
+
+/* SINGLE HORSE RUNNING IN ALL POSITIONS */
+/* .horse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    position: relative;
+  }
+  
+  .horse img {
+    width: 100px;
+    height: auto;
+    margin-right: 1rem;
+  }
+  
+  .horse .info {
+    flex: 1;
+  }
+  
+  .horse .position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px #ccc;
+  }
+  
+  @keyframes horse-animation {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .horse .horse-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: url('./images/horse running (2).gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: horse-animation 10s linear infinite;
+  }
+  
+  .leaderboard {
+    margin-top: 2rem;
+  }
+  
+  .leaderboard h2 {
+    text-align: center;
+  }
+  
+  .leaderboard .horse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .horse img {
+      width: 50px;
+    }
+  }
+   */
+
+
+
+/* .App {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-top: 0;
+  }
+  
+  p {
+    font-size: 20px;
+  }
+  
+  .horse-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .horse-selection > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 80px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+  
+  .horse-selection > div.selected {
+    background-color: #eee;
+  }
+  
+  .horse-selection > div > p {
+    font-size: 18px;
+    margin: 8px;
+  }
+  
+  .horse-selection > div > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  button {
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .track {
+    position: relative;
+    height: 60px;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .horse {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #007bff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: left 16s linear;
+  }
+  
+  .horse > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  ol > li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  ol > li > p {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  ol > li > img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+   */
