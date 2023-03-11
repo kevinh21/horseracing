@@ -17,7 +17,7 @@ import Home from "./pages/Home";
 import Horse from "./pages/Horse";
 import HorseTraining from "./pages/HorseTraining";
 import Instructions from "./pages/Instructions";
-import Jockey from "./pages/Dashboard";
+import Jockey from "./pages/Jockey";
 import JockeyHistory from "./pages/JockeyHistory";
 import JockeyStats from "./pages/JockeyStats.js";
 import JockeyStyle from "./pages/JockeyStyle.js";

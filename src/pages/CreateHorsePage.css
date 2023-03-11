@@ -1,4 +1,110 @@
+
+
+/* General styles */
 body {
+    background-color: #f5f5f5;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  
+  form {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  input,
+  select {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  input[type='number'] {
+    width: 7rem;
+  }
+  
+  button[type='submit'] {
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type='submit']:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Form specific styles */
+  #color-select,
+  #height-select {
+    width: 100%;
+  }
+  
+  #weight-input,
+  #age-input,
+  #races-input,
+  #highest-earning-input,
+  #total-earnings-input,
+  #first-place-input,
+  #second-place-input,
+  #third-place-input,
+  #past-performances-input,
+  #sire-input,
+  #dame-input,
+  #tracks-raced-input,
+  #stats-input {
+    width: 100%;
+  }
+  
+  /* Error message styles */
+  input:invalid,
+  select:invalid {
+    border-color: red;
+  }
+  
+  input:invalid + span,
+  select:invalid + span {
+    color: red;
+    font-size: 0.9rem;
+  }
+  
+  input:valid + span,
+  select:valid + span {
+    display: none;
+  }
+  
+  
+
+
+
+
+
+
+
+/* body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
     margin: 0;
@@ -62,4 +168,4 @@ body {
   option[value=''] {
     color: #ddd;
   }
-  
+   */
