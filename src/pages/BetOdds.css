@@ -1,7 +1,83 @@
+.horse-container {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+  }
+  
+  .horse-container img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 80px;
+    animation: horse-race 12s linear infinite;
+  }
+  
+  @keyframes horse-race {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  .horse1 {
+    bottom: 0;
+  }
+  
+  .horse2 {
+    bottom: 20px;
+  }
+  
+  .horse3 {
+    bottom: 40px;
+  }
+  
+  .horse4 {
+    bottom: 60px;
+  }
+  
+  .horse5 {
+    bottom: 80px;
+  }
+  
+  .horse6 {
+    bottom: 100px;
+  }
+  
+  .horse7 {
+    bottom: 120px;
+  }
+  
+  .horse8 {
+    bottom: 140px;
+  }
+  
+  .horse9 {
+    bottom: 160px;
+  }
+  
+  .horse10 {
+    bottom: 180px;
+  }
+  
+  .horse11 {
+    bottom: 200px;
+  }
+  
+  .horse12 {
+    bottom: 220px;
+  }
+  
+
+
+========================================================================
+
 /* BetOdds.css */
 
 /* Global styles */
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,17 +88,17 @@
     font-size: 16px;
     line-height: 1.5;
   }
-  
+   */
   /* Leaderboard and odds container */
-  .leaderboard-odds-container {
+  /* .leaderboard-odds-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 2rem;
   }
-  
+   */
   /* Leaderboard and odds header */
-  .leaderboard-odds-header {
+  /* .leaderboard-odds-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,18 +125,18 @@
   
   .leaderboard-odds-header button:hover {
     background-color: #27ae60;
-  }
+  } */
   
   /* Leaderboard and odds body */
-  .leaderboard-odds-body {
+  /* .leaderboard-odds-body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-  }
+  } */
   
   /* Horse selection */
-  .leaderboard-odds-horse-selection {
+  /* .leaderboard-odds-horse-selection {
     margin-right: 2rem;
   }
   
@@ -75,9 +151,9 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
   }
-  
+   */
   /* Horse */
-  .leaderboard-odds-horse {
+  /* .leaderboard-odds-horse {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,15 +197,15 @@
   
   .leaderboard-odds-horse.selected p {
     color: #fff;
-  }
+  } */
   
   /* Race */
-  .leaderboard-odds-race {
+  /* .leaderboard-odds-race {
     position: relative;
   }
-  
+   */
   /* Track */
-  .leaderboard-odds-track {
+  /* .leaderboard-odds-track {
     position:
     absolute;
     top: 50%;
@@ -141,9 +217,9 @@
     border-radius: 10px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
     }
-    
+     */
     /* Finish line */
-    .leaderboard-odds-finish-line {
+    /* .leaderboard-odds-finish-line {
     position: absolute;
     top: 0;
     left: calc(100% - 2rem);
@@ -151,19 +227,19 @@
     width: 2rem;
     background-color: #333;
     }
-    
+     */
     /* Horse track */
-    .leaderboard-odds-horse-track {
+    /* .leaderboard-odds-horse-track {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     height: 70%;
     width: 100%;
     display: flex;
-    }
+    } */
     
     /* Horse lane */
-    .leaderboard-odds-horse-lane {
+    /* .leaderboard-odds-horse-lane {
     position: relative;
     width: calc(100% / 4);
     height: 100%;
@@ -171,9 +247,9 @@
     justify-content: center;
     align-items: center;
     }
-    
+     */
     /* Horse name */
-    .leaderboard-odds-horse-name {
+    /* .leaderboard-odds-horse-name {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -181,10 +257,10 @@
     font-size: 0.8rem;
     font-weight: bold;
     color: #333;
-    }
+    } */
     
     /* Horse progress */
-    .leaderboard-odds-horse-progress {
+    /* .leaderboard-odds-horse-progress {
     position: absolute;
     top: 0;
     left: 0;
@@ -194,7 +270,7 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     transition: width 2s linear;
-    }
+    } */
     
     
     

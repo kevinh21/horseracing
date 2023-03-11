@@ -1,0 +1,26 @@
+.live-stream-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  video {
+    margin-bottom: 20px;
+  }
+  
+  .horse-positions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .horse-positions-container > div {
+    margin: 10px 0;
+  }
+  
+  .horse-positions-container > div p {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  

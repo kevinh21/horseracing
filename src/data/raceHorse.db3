@@ -17,3 +17,4 @@ CREATE TABLE Race_Horses (
   physical_markings TEXT,
   medical
 );
+

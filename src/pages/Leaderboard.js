@@ -4,6 +4,11 @@ import Horse2Gif from './images/horse running (2).gif';
 import Horse3Gif from './images/horse running (3).gif';
 import Horse4Gif from './images/horse running (4).gif';
 import Horse5Gif from './images/horse running (5).gif';
+import Horse6Gif from './images/horse running (6).gif';
+import Horse7Gif from './images/horse running (7).gif';
+import Horse8Gif from './images/horse running (8).gif';
+import Horse9Gif from './images/horse running (9).gif';
+import Horse10Gif from './images/horse running (10).gif';
 import './Leaderboard.css';
 
 
@@ -12,7 +17,12 @@ const horses = [
   { name: 'Horse 2', number: 2, gif: Horse2Gif },
   { name: 'Horse 3', number: 3, gif: Horse3Gif },
   { name: 'Horse 4', number: 4, gif: Horse4Gif },
-  { name: 'Horse 5', number: 5, gif: Horse5Gif }
+  { name: 'Horse 5', number: 5, gif: Horse5Gif },
+  { name: 'Horse 6', number: 6, gif: Horse6Gif },
+  { name: 'Horse 7', number: 7, gif: Horse7Gif },
+  { name: 'Horse 8', number: 8, gif: Horse8Gif },
+  { name: 'Horse 9', number: 9, gif: Horse9Gif },
+  { name: 'Horse 10', number:10, gif: Horse10Gif }
 ];
 
 const Leaderboard = () => {

@@ -8,6 +8,7 @@ import BetTypes from "./pages/BetTypes";
 import BetOdds from "./pages/BetOdds.js";
 import Breeding from "./pages/Breeding";
 import CreateHorsepage from "./pages/CreateHorsePage";
+import Dashboard from "./pages/Dashboard"
 import Earnings from "./pages/Earnings.js";
 import FAQs from "./pages/FAQs";
 import Gear from "./pages/Gear";
@@ -16,7 +17,7 @@ import Home from "./pages/Home";
 import Horse from "./pages/Horse";
 import HorseTraining from "./pages/HorseTraining";
 import Instructions from "./pages/Instructions";
-import Jockey from "./pages/Jockey";
+import Jockey from "./pages/Dashboard";
 import JockeyHistory from "./pages/JockeyHistory";
 import JockeyStats from "./pages/JockeyStats.js";
 import JockeyStyle from "./pages/JockeyStyle.js";
@@ -61,6 +62,7 @@ function App() {
         <Route path="/bet-payouts" element={<BetPayouts />} />
         <Route path="/breeding" element={<Breeding />} />
         <Route path="/create-horse-page" element={<CreateHorsepage/>}/>
+        <Route path="./dashboard" element={<Dashboard/>}/>
         <Route path="/earnings" element={<Earnings />} />
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/gear" element={<Gear />} />

@@ -11,7 +11,6 @@ const Navbar = () => {
         <ul className='menu-list dropdown'>HORSE 
         <ul className='dropdown'>
         <li> <NavLink to="/horse" activeClassName="active">Horse</NavLink> </li>
-               <li> <NavLink to="/earnings" activeClassName="active">Earnings</NavLink> </li>
                <li> <NavLink to="/owner" activeClassName="active">Owner</NavLink> </li>
                <li> <NavLink to="/history" activeClassName="active">History</NavLink> </li>
              </ul>
@@ -24,7 +23,7 @@ const Navbar = () => {
         <li> <NavLink to="/jockey-style" activeClassName="active">Style</NavLink> </li>
         </ul>
         </ul>
-        <ul className='menu-list dropdown'>TRACK 
+        <ul className='menu-list dropdown'>RACETRACK 
         <ul className='dropdown'>    
         <li> <NavLink to="/race-track" activeClassName="active">Track</NavLink> </li>
         <li> <NavLink to="/track-type" activeClassName="active">Track Type</NavLink> </li>
@@ -87,14 +86,16 @@ const Navbar = () => {
         <ul className='menu-list dropdown'>STATISTICS 
         <ul className='dropdown'>
         <li> <NavLink to="/statistics" activeClassName="active">Statistics</NavLink> </li>     
+        <li> <NavLink to="/earnings" activeClassName="active">Earnings</NavLink> </li>
             </ul>
           </ul>
           <ul className='menu-list dropdown'>DASHBOARD      
        <ul className='dropdown'>
-               <li> <NavLink to="/signup" activeClassName="active">Sign Up</NavLink> </li>
+        <li> <NavLink to="/signup" activeClassName="active">Sign Up</NavLink> </li>                
         <li> <NavLink to="/login" activeClassName="active">Log In</NavLink> </li>
         <li> <NavLink to="/profile" activeClassName="active">Profile</NavLink> </li>
         <li> <NavLink to="/profileEdit" activeClassName="active">Edit Profile</NavLink> </li>
+        <li> <NavLink to="/dashboard" activeClassName="active">DashBoard</NavLink></li>
            </ul>
          </ul>
       </div> 

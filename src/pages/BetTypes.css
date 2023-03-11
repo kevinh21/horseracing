@@ -1,0 +1,42 @@
+/* CSS code for BetAccordion */
+
+/* Styling for the Accordion component */
+.Accordion {
+    width: 100%;
+    margin-top: 1rem;
+    }
+    
+    /* Styling for the Card component */
+    .Card {
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0.5rem;
+    }
+    
+    /* Styling for the Card.Header component */
+    .Card.Header {
+    background-color: #f8f9fa;
+    border-radius: 0;
+    }
+    
+    /* Styling for the Accordion.Toggle component */
+    .Accordion.Toggle {
+    color: #007bff;
+    font-weight: bold;
+    }
+    
+    /* Styling for the active Accordion.Toggle component */
+    .Accordion.Toggle.active {
+    color: #28a745;
+    }
+    
+    /* Styling for the Accordion.Collapse component */
+    .Accordion.Collapse {
+    background-color: #f8f9fa;
+    }
+    
+    /* Styling for the Card.Body component */
+    .Card.Body {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    }
