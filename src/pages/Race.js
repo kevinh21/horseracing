@@ -1,284 +1,197 @@
+import React, { useState } from "react";
+import "./Race.css";
 
+const PAST_RACES = [
+  {
+    id: 1,
+    title: "Kentucky Derby",
+    date: "May 1, 2021",
+    location: "Churchill Downs, Louisville, KY",
+    distance: "1 1/4 miles",
+    purse: "$3 million",
+    conditions: "3-year-olds",
+    horses: [
+      { name: "Medina Spirit", jockey: "John R. Velazquez", odds: "12-1" },
+      { name: "Mandaloun", jockey: "Florent Geroux", odds: "15-1" },
+      { name: "Hot Rod Charlie", jockey: "Flavien Prat", odds: "5-1" },
+      { name: "Essential Quality", jockey: "Luis Saez", odds: "2-1" },
+      { name: "Known Agenda", jockey: "Irad Ortiz Jr.", odds: "6-1" },
+    ],
+    results: [
+      { horse: "Medina Spirit", position: "1", time: "2:01.02" },
+      { horse: "Mandaloun", position: "2", time: "2:01.98" },
+      { horse: "Hot Rod Charlie", position: "3", time: "2:02.68" },
+    ],
+    replay: "https://www.youtube.com/watch?v=wD1JxN6Vz5Y",
+  },
+  {
+    id: 2,
+    title: "Preakness Stakes",
+    date: "May 15, 2021",
+    location: "Pimlico Race Course, Baltimore, MD",
+    distance: "1 3/16 miles",
+    purse: "$1.5 million",
+    conditions: "3-year-olds",
+    horses: [
+      { name: "Rombauer", jockey: "Flavien Prat", odds: "11-1" },
+      { name: "Midnight Bourbon", jockey: "Ricardo Santana Jr.", odds: "5-1" },
+      { name: "Medina Spirit", jockey: "John R. Velazquez", odds: "2-1" },
+      { name: "Crowded Trade", jockey: "Javier Castellano", odds: "10-1" },
+      { name: "Keepmeinmind", jockey: "David Cohen", odds: "15-1" },
+    ],
+    results: [
+      { horse: "Rombauer", position: "1", time: "1:53.62" },
+      { horse: "Midnight Bourbon", position: "2", time: "1:54.02" },
+      { horse: "Medina Spirit", position: "3", time: "1:54.23" },
+    ],
+    replay: "https://www.youtube.com/watch?v=VG0iZ-cXq3k",
+  },
+];
 
-
-import React, { useState } from 'react';
-
-const Race = () => {
-  const [selectedRaces, setSelectedRaces] = useState([]);
-  const races = [
-    {
-      id: 1,
-      name: 'Kentucky Derby',
-      date: 'May 7, 2022',
-      location: 'Churchill Downs',
-      track: 'Dirt',
-      distance: '1 1/4 miles',
-      purse: '$3 million',
-      conditions: '3-year-old thoroughbreds',
-      horses: [
-        {
-          id: 1,
-          name: 'Essential Quality',
-          jockey: 'Luis Saez',
-          odds: '2-1',
-          pastPerformances: [
-            { year: 2021, result: '1st' },
-            { year: 2020, result: 'N/A' },
-          ],
-        },
-        {
-          id: 2,
-          name: 'Hot Rod Charlie',
-          jockey: 'Flavien Prat',
-          odds: '8-1',
-          pastPerformances: [
-            { year: 2021, result: '3rd' },
-            { year: 2020, result: 'N/A' },
-          ],
-        },
-      ],
-      bettingInfo: [
-        { betType: 'Win', odds: '2-1' },
-        { betType: 'Place', odds: '5-2' },
-        { betType: 'Show', odds: '3-1' },
-      ],
-      results: [
-        { horse: 'Essential Quality', position: 1, time: '2:01.31' },
-        { horse: 'Mandaloun', position: 2, time: '2:01.82' },
-        { horse: 'Hot Rod Charlie', position: 3, time: '2:02.68' },
-      ],
-      replayUrl: 'https://www.youtube.com/watch?v=lI4a5ozdErY',
+const FUTURE_RACES = [
+  {
+    id: 3,
+    title: "Belmont Stakes",
+    date: "June 5, 2021",
+    location: "Belmont Park, Elmont, NY",
+    distance: "1 1/2 miles",
+    purse: "$1.5 million",
+    conditions: "3-year-olds",
+    horses: [
+    { name: "Essential Quality", jockey: "Luis Saez", odds: "2-1" },
+    { name: "Rombauer", jockey: "Flavien Prat", odds: "3-1" },
+    { name: "Hot Rod Charlie", jockey: "Flavien Prat", odds: "5-1" },
+    { name: "Rock Your World", jockey: "Joel Rosario", odds: "6-1" },
+    { name: "Known Agenda", jockey: "Irad Ortiz Jr.", odds: "8-1" },
+    ],
+    replay: "",
     },
     {
-      id: 2,
-      name: 'Preakness Stakes',
-      date: 'May 21, 2022',
-      location: 'Pimlico Race Course',
-      track: 'Dirt',
-      distance: '1 3/16 miles',
-      purse: '$1.5 million',
-      conditions: '3-year-old thoroughbreds',
-      horses: [
-        {
-          id: 3,
-          name: 'Medina Spirit',
-          jockey: 'John Velazquez',
-          odds: '5-2',
-          pastPerformances: [
-            { year: 2021, result: 'N/A' },
-            { year: 2020, result: 'N/A' },
-          ],
-        },
-        {
-          id: 4,
-          name: 'Concert Tour',
-          jockey: 'Mike Smith',
-          odds: '7-2',
-          pastPerformances: [
-            { year: 2021, result: 'N/A' },
-            { year: 2020, result: 'N/A' },
-          ],
-        },
-      ],
-      bettingInfo: [
-        { betType: 'Win', odds: '5-2' },
-        { betType: 'Place', odds: '3-1' },
-        { betType: 'Show', odds: '4-1' },
-      ],
-      results: [
-        { horse: 'Rombauer', position: 1, time: '1:53.62' },
-        {
-          id: 2,
-          horse: 'Midnight Bourbon',
-          position: 2,
-          time: '1:54.10',
-          },
-          { id: 3, horse: 'Medina Spirit', position: 3, time: '1:54.94' },
-          ],
-          replayUrl: 'https://www.youtube.com/watch?v=J0KdJJ-WUb4',
-          },
-          {
-          id: 3,
-          name: 'Belmont Stakes',
-          date: 'June 11, 2022',
-          location: 'Belmont Park',
-          track: 'Dirt',
-          distance: '1 1/2 miles',
-          purse: '$1.5 million',
-          conditions: '3-year-old thoroughbreds',
-          horses: [
-          {
-          id: 5,
-          name: 'Essential Quality',
-          jockey: 'Luis Saez',
-          odds: '5-2',
-          pastPerformances: [
-          { year: 2021, result: '4th' },
-          { year: 2020, result: 'N/A' },
-          ],
-          },
-          {
-          id: 6,
-          name: 'Hot Rod Charlie',
-          jockey: 'Flavien Prat',
-          odds: '7-2',
-          pastPerformances: [
-          { year: 2021, result: '2nd' },
-          { year: 2020, result: 'N/A' },
-          ],
-          },
-          ],
-          bettingInfo: [
-          { betType: 'Win', odds: '5-2' },
-          { betType: 'Place', odds: '3-1' },
-          { betType: 'Show', odds: '4-1' },
-          ],
-          results: [
-          { horse: 'Essential Quality', position: 1, time: '2:27.11' },
-          { horse: 'Hot Rod Charlie', position: 2, time: '2:27.71' },
-          { horse: 'Rombauer', position: 3, time: '2:28.17' },
-          ],
-          replayUrl: 'https://www.youtube.com/watch?v=_3qRL-qkgT8',
-          },
-          ];
-          
-          const handleSelectRace = (raceId) => {
-          if (selectedRaces.includes(raceId)) {
-          setSelectedRaces(selectedRaces.filter((id) => id !== raceId));
-          } else {
-          setSelectedRaces([...selectedRaces, raceId]);
-          }
-          };
-          
-          return (
-          <div>
-          <h1>Horse Race Page</h1>
-          <h2>Select races to display:</h2>
-          <ul>
-          {races.map((race) => (
-          <li key={race.id}>
-          <label>
-          <input
-          type="checkbox"
-          checked={selectedRaces.includes(race.id)}
-          onChange={() => handleSelectRace(race.id)}
-          />
-          {race.name}
-          </label>
-          </li>
-          ))}
-          </ul>
-          {selectedRaces.map((raceId) => (
-          <RaceCard key={raceId} race={races.find((race) => race.id === raceId)} />
-          ))}
-          </div>
-          );
-          };
-          
-          const RaceCard = ({ race }) => {
-          return (
-          <div>
-          <h2>{race.name}</h2>
-          <p>Date and Time: {race.date}</p>
-          <p>Location: {race.location}</p>
-          <p>Track: {race.track}</p>
-          <p>Distance: {race.distance}</p>
-          <h3>Horses:</h3>
-<ul>
-{race.horses.map((horse) => (
-<li key={horse.id}>
-<p>Name: {horse.name}</p>
-<p>Jockey: {horse.jockey}</p>
-<p>Odds: {horse.odds}</p>
-<h4>Past Performances:</h4>
-<ul>
-{horse.pastPerformances.map((performance) => (
-<li key={performance.year}>
-<p>{performance.year}: {performance.result}</p>
-</li>
-))}
-</ul>
-</li>
-))}
-</ul>
-<h3>Betting Information:</h3>
-<ul>
-{race.bettingInfo.map((bet) => (
-<li key={bet.betType}>
-<p>{bet.betType}: {bet.odds}</p>
-</li>
-))}
-</ul>
-<h3>Results:</h3>
+    id: 4,
+    title: "Breeders' Cup Classic",
+    date: "November 6, 2021",
+    location: "Del Mar Racetrack, Del Mar, CA",
+    distance: "1 1/4 miles",
+    purse: "$6 million",
+    conditions: "3-year-olds and up",
+    horses: [
+    { name: "Essential Quality", jockey: "Luis Saez", odds: "3-1" },
+    { name: "Hot Rod Charlie", jockey: "Flavien Prat", odds: "4-1" },
+    { name: "Maxfield", jockey: "Jose Ortiz", odds: "5-1" },
+    { name: "Life Is Good", jockey: "Mike Smith", odds: "6-1" },
+    { name: "Knicks Go", jockey: "Joel Rosario", odds: "8-1" },
+    ],
+    replay: "",
+    },
+    ];
+    
+    function Race() {
+    const [pastRace, setPastRace] = useState(null);
+    const [futureRace, setFutureRace] = useState(null);
+    
+    const handlePastRaceChange = (event) => {
+    const raceId = parseInt(event.target.value);
+    const race = PAST_RACES.find((race) => race.id === raceId);
+    setPastRace(race);
+    setFutureRace(null);
+    };
+    
+    const handleFutureRaceChange = (event) => {
+    const raceId = parseInt(event.target.value);
+    const race = FUTURE_RACES.find((race) => race.id === raceId);
+    setFutureRace(race);
+    setPastRace(null);
+    };
+    
+    return (
+    <div className="App">
+    <h1>Horse Races</h1>
+    <div className="select-container">
+    <label htmlFor="past-race-select">Select a past race:</label>
+    <select id="past-race-select" onChange={handlePastRaceChange}>
+      <option value="">--Select--</option>
+      {PAST_RACES.map((race) => (
+        <option key={race.id} value={race.id}>
+          {race.title}
+        </option>
+      ))}
+    </select>
+  </div>
+
+  <div className="select-container">
+    <label htmlFor="future-race-select">Select a future race:</label>
+    <select id="future-race-select" onChange={handleFutureRaceChange}>
+      <option value="">--Select--</option>
+      {FUTURE_RACES.map((race) => (
+        <option key={race.id} value={race.id}>
+          {race.title}
+        </option>
+      ))}
+    </select>
+  </div>
+
+  {pastRace && (
+    <div className="race-card">
+      <h2>{pastRace.title}</h2>
+      <p>Date and Time: {pastRace.date}</p>
+      <p>Location and Track:
+      {pastRace.location}</p>
+<p>Distance: {pastRace.distance}</p>
+<p>Purse: {pastRace.purse}</p>
+<p>Conditions: {pastRace.conditions}</p>
+<h3>Results</h3>
 <table>
 <thead>
 <tr>
-<th>Position</th>
 <th>Horse</th>
+<th>Position</th>
 <th>Time</th>
 </tr>
 </thead>
 <tbody>
-{race.results.map((result) => (
+{pastRace.results.map((result) => (
 <tr key={result.horse}>
-<td>{result.position}</td>
 <td>{result.horse}</td>
+<td>{result.position}</td>
 <td>{result.time}</td>
 </tr>
 ))}
 </tbody>
 </table>
-<p>Replay URL: <a href={race.replayUrl}>Click Here</a></p>
+<div className="video-container">
+<h3>Replay</h3>
+<iframe
+title={pastRace.title + " Replay"}
+width="560"
+height="315"
+src={pastRace.replay}
+allowFullScreen
+></iframe>
 </div>
-);
-};
+</div>
+)}
+
+{futureRace && (
+<div className="race-card">
+<h2>{futureRace.title}</h2>
+<p>Date and Time: {futureRace.date}</p>
+<p>Location and Track: {futureRace.location}</p>
+<p>Distance: {futureRace.distance}</p>
+<p>Purse: {futureRace.purse}</p>
+<p>Conditions: {futureRace.conditions}</p>
+<h3>Horses</h3>
+<ul>
+{futureRace.horses.map((horse) => (
+<li key={horse.name}>
+<span className="horse-name">{horse.name}</span>
+<span className="horse-jockey">Jockey: {horse.jockey}</span>
+<span className="horse-odds">Odds: {horse.odds}</span>
+</li>
+))}
+</ul>
+</div>
+)}
+
+</div>);
+}
 export default Race;
-          
-          
-          
-          
-          
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState } from 'react';
-// import RaceCard from './RaceCard';
-
-// const Race = ({ racesData }) => {
-//   const [numRaces, setNumRaces] = useState(1);
-
-//   const handleChange = (e) => {
-//     setNumRaces(e.target.value);
-//   };
-
-//   const racesToShow = racesData.slice(0, numRaces);
-
-//   return (
-//     <div>
-//       <h1>Horse Races</h1>
-//       <div>
-//         <label htmlFor="numRaces">Number of Races:</label>
-//         <select id="numRaces" onChange={handleChange} value={numRaces}>
-//           {[...Array(racesData.length)].map((_, i) => (
-//             <option key={i + 1} value={i + 1}>
-//               {i + 1}
-//             </option>
-//           ))}
-//         </select>
-//       </div>
-//       {racesToShow.map((race) => (
-//         <RaceCard key={race.id} race={race} />
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default Race;
