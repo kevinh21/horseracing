@@ -7,6 +7,12 @@ const initialState = {
   
   const forgotPasswordReducer = (state = initialState, action) => {
     switch (action.type) {
+      case 'FORGOT_PASSWORD_REQUEST':
+        return {
+          ...state,
+          success: false,
+          error: null,
+        };
       case 'FORGOT_PASSWORD_SUCCESS':
         return {
           ...state,

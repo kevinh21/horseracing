@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  
+  input[type='text'] {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .signature {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+  
+  .seller, .buyer {
+    width: 45%;
+  }
+  
+  .seller h3, .buyer h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .seller p, .buyer p {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  

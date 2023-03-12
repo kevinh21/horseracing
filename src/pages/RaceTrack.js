@@ -105,7 +105,7 @@ setTracks(sampleTracks);
 }, []);
 
 return (
-<div className="container">
+<div className="track-container">
 <h1 className="text-center">Track List</h1>
 
 <table className="table">

@@ -1,122 +1,61 @@
-.race-track-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    background-color: red;
+.track-container {
+    max-width: 98%;
+    margin: 0 auto;
+    padding: 2px;
   }
   
-  .race-track-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: red;
-
-  }
-  
-  .track-info-table,
-  .race-info-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    background-color: red;
-
-  }
-  
-  .table-header {
-    font-weight: bold;
-  }
-  
-  .race-info-header {
-    width: 10%;
-    background-color: red;
-
-  }
-  
-  .track-name,
-  .location,
-  .surface,
-  .distance,
-  .condition,
-  .weather,
-  .date,
-  .race-name,
-  .race-type,
-  .distance,
-  .purse,
-  .winning-time,
-  .winning-horse,
-  .winning-jockey,
-  .winning-trainer,
-  .track-record,
-  .speed-figure,
-  .weather {
-    padding: 10px;
-    text-align: center;
-    background-color: red;
-
-  }
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-th {
-  font-weight: 600;
-}
-
-thead th {
-  border-top: none;
-}
-
-tbody td {
-  vertical-align: middle;
-}
-
-table.table {
-  margin-bottom: 40px;
-}
-
-table.nested-table {
-  margin-bottom: 0;
-}
-
-table.nested-table td {
-  padding: 0;
-}
-
-table.nested-table td > table {
-  margin-bottom: 0;
-}
-
-table.nested-table td > table td {
-  padding: 10px;
-}
-
-@media (max-width: 767px) {
   h1 {
-    font-size: 2rem;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
   }
-} */
+  
+  table {
+    width: 100%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+  }
+  
+  table th, table td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+  }
+  
+  table th {
+    font-weight: bold;
+    background-color: #f8f9fa;
+  }
+  
+  table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+  
+  table tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  table.table-nested {
+    margin-bottom: 0;
+  }
+  
+  table.table-nested th, table.table-nested td {
+    border: none;
+    padding: 0;
+  }
+  
+  table.table-nested th {
+    font-weight: normal;
+    font-size: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  table.table-nested td {
+    padding: 10px;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  table.table-nested tbody tr:last-child td {
+    border-bottom: 1px solid #dee2e6;
+  }
+  

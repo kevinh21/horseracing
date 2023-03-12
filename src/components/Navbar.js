@@ -64,6 +64,15 @@ const Navbar = () => {
         <li> <NavLink to="/breeds" activeClassName="active">Breeds</NavLink> </li>
         <li> <NavLink to="/public" activeClassName="active">Public</NavLink> </li>
         <li> <NavLink to="/private" activeClassName="active">Private</NavLink> </li>
+        <li> <NavLink to="/bidding" activeClassName="active">Bidding</NavLink> </li>
+        <li> <NavLink to="/current-highest-bid" activeClassName="active">Current Highest Bid</NavLink> </li>
+        <li> <NavLink to="/auction-results" activeClassName="active">Auction Results</NavLink> </li>
+        <li> <NavLink to="/facilities" activeClassName="active">Facilities</NavLink> </li>
+        <li> <NavLink to="/staff" activeClassName="active">Staff</NavLink> </li>
+        <li> <NavLink to="/sales-contract" activeClassName="active">Sales Contract</NavLink> </li>
+        <li> <NavLink to="/transportation" activeClassName="active">Transportation</NavLink> </li>
+
+
         </ul>
           </ul>
           <ul className='menu-list dropdown'>ACTIVITY 

@@ -2,29 +2,28 @@ import React from "react";
 import {Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Auction from "./pages/Auction";
 import Bets from "./pages/Bets";
 import BetTypes from "./pages/BetTypes";
-import BetOdds from "./pages/BetOdds.js";
+import BetOdds from "./pages/BetOdds";
 import Breeding from "./pages/Breeding";
 import CreateHorsepage from "./pages/CreateHorsePage";
 import Dashboard from "./pages/Dashboard"
-import Earnings from "./pages/Earnings.js";
+import Earnings from "./pages/Earnings";
 import FAQs from "./pages/FAQs";
 import Gear from "./pages/Gear";
-import History from "./pages/History.js";
+import History from "./pages/History";
 import Home from "./pages/Home";
 import Horse from "./pages/Horse";
 import HorseTraining from "./pages/HorseTraining";
 import Instructions from "./pages/Instructions";
 import Jockey from "./pages/Jockey";
 import JockeyHistory from "./pages/JockeyHistory";
-import JockeyStats from "./pages/JockeyStats.js";
-import JockeyStyle from "./pages/JockeyStyle.js";
+import JockeyStats from "./pages/JockeyStats";
+import JockeyStyle from "./pages/JockeyStyle";
 import Leaderboard from "./pages/Leaderboard";
 import LearnAboutRacing from "./pages/LearnAboutRacing";
 import LoginForm from "./components/auth/LoginForm";
-import News from "./pages/News.js";
+import News from "./pages/News";
 import Owner from "./pages/Owner";
 import BetPayouts from "./pages/BetPayouts";
 import Profile from "./components/profile/Profile";
@@ -32,15 +31,27 @@ import ProfileEdit from "./components/profile/ProfileEditForm";
 import Race from "./pages/Race";
 import RaceResults from "./pages/RaceResults";
 import RaceTrack from "./pages/RaceTrack";
-import TrackType from "./pages/TrackType.js";
-import TrackConditions from "./pages/TrackConditions.js";
+import TrackType from "./pages/TrackType";
+import TrackConditions from "./pages/TrackConditions";
 import Signup from "./components/auth/SignupForm";
 import Statistics from "./pages/Statistics";
 import Trainer from "./pages/Trainer";
-import TrainerStats from "./pages/TrainerStats.js";
-import TrainerStyle from "./pages/TrainerStyle.js";
-import TrainerHistory from "./pages/TrainerHistory.js";
+import TrainerStats from "./pages/TrainerStats";
+import TrainerStyle from "./pages/TrainerStyle";
+import TrainerHistory from "./pages/TrainerHistory";
 import Tutorial from "./pages/Tutorial";
+// AUCTION MODULE SECTION
+import Auction from './modules/Auction/Auction';
+import AuctionHorses from './modules/Auction/AuctionHorses';
+import HorseDetails from './modules/Auction/HorseDetails';
+import Bidding from './modules/Auction/Bidding';
+import CurrentHighestBid from './modules/Auction/CurrentHighestBid';
+import AuctionResults from './modules/Auction/AuctionResults';
+import Facilities from './modules/Auction/Facilities';
+import Staff from './modules/Auction/Staff';
+import SalesContract from './modules/Auction/SalesContract';
+import Transportation from './modules/Auction/Transportation';
+
 
 
 function App() {
@@ -88,6 +99,17 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/race-results" element={<RaceResults />} />
         <Route path="/statistics" element={<Statistics />} />
+
+ {/* AUCTION MODULE SECTION */}
+        <Route path="/auction-horses" element={<AuctionHorses />} />
+        <Route path="/horse-details" element={<HorseDetails />} />
+        <Route path="/bidding" element={<Bidding />} />
+        <Route path="/current-highest-bid" element={<CurrentHighestBid />} />
+        <Route path="/auction-results" element={<AuctionResults />} />
+        <Route path="/facilities" element={<Facilities />} />
+        <Route path="/staff" element={<Staff />} />
+        <Route path="/sales-contract" element={<SalesContract />} />
+        <Route path="/transportation" element={<Transportation />} />
       </Routes>
       </>
 );  

@@ -1,158 +1,2508 @@
-import React, { useState, useEffect } from 'react';
-import Horse1Gif from './images/horse running (1).gif';
-import Horse2Gif from './images/horse running (2).gif';
-import Horse3Gif from './images/horse running (3).gif';
-import Horse4Gif from './images/horse running (4).gif';
-import Horse5Gif from './images/horse running (5).gif';
-import Horse6Gif from './images/horse running (6).gif';
-import Horse7Gif from './images/horse running (7).gif';
-import Horse8Gif from './images/horse running (8).gif';
-import Horse9Gif from './images/horse running (9).gif';
-import Horse10Gif from './images/horse running (10).gif';
-import './Leaderboard.css';
+// 1. write comprehensive react.js app named Leaderboard.js animation of a horserace with modifications:
+// 1. horses moving across the screen from left to right and randomly change speed and positions in .1 seconds increments,
+// 2. ADD drop down menu allowing selecting duration of race up to 120 seconds, 
+// 3. ADD drop down menu allowing selecting multiple horses 
+// 4. Minimum of 4 Horses in each race
+// 5. Maximum of 10 horses in each race
+// 5. Leaderboard updates statistics in a table columns and rows at the botttom of the screen and showing horse name, horse number, post position, race position on the track, Mile Odds, length of track, race name, date,  stop watch timer of race,
+// 6.  show winning horse image, name and odds at end of race
+// write the exact same code with modifications:  
+// 1.  Multiple selection drop down list of horses with names and number
+// 2.  Random duration of race time from 20 seconds to 120 seconds not displayed
+// 3.  Random length of track from .6 miles to 2.6 miles
+// 4.  Display horses names, odds, and other statistics ONLY in the leaderboard status TABLE.
+// 5.  Only show horses that are running in the race.  
+// 6.  Show minimum of 4 horses and the selected horse
+// 7.  Show a stop watch in the top right of the screen
+// 8.  Display the leaderboard table in the top right of the screen
+// write the exact same code with modifications:  
+// 1.  Multiple selection drop down menu of Horse Names
+// 2.  Random race duration of real time from 30 seconds to 180 seconds not displayed
+// 3.  Display Leaderboard Table in top left corner at all times 
+// 4.  Display Track length Random from .6 miles to 2.6 miles in the Leaderboard Table
+// 5.  Display horses names, odds, and other statistics ONLY in the leaderboard TABLE.
+// 6.  Show 4 random horses at beginning of race, when enter screen, or after reset 
+// 8.  Show horses on the screen added to other horses when selected, 
+// 9.  Show a stop watch in the top right corner of the screen next to the Title
+// 10.  After Race ends Display the leaderboard table in the center of screen with the image of winning horse.
 
 
-const horses = [
-  { name: 'Horse 1', number: 1, gif: Horse1Gif },
-  { name: 'Horse 2', number: 2, gif: Horse2Gif },
-  { name: 'Horse 3', number: 3, gif: Horse3Gif },
-  { name: 'Horse 4', number: 4, gif: Horse4Gif },
-  { name: 'Horse 5', number: 5, gif: Horse5Gif },
-  { name: 'Horse 6', number: 6, gif: Horse6Gif },
-  { name: 'Horse 7', number: 7, gif: Horse7Gif },
-  { name: 'Horse 8', number: 8, gif: Horse8Gif },
-  { name: 'Horse 9', number: 9, gif: Horse9Gif },
-  { name: 'Horse 10', number:10, gif: Horse10Gif }
-];
+      
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect, useRef } from "react";
+// import "./Leaderboard.css";
+
+// import Horse1 from './images/horse (1).gif';
+// import Horse2 from './images/horse (2).gif';
+// import Horse3 from './images/horse (3).gif';
+// import Horse4 from './images/horse (4).gif';
+// import Horse5 from './images/horse (5).gif';
+// import Horse6 from './images/horse (6).gif';
+// import Horse7 from './images/horse (7).gif';
+// import Horse8 from './images/horse (8).gif';
+// import Horse9 from './images/horse (9).gif';
+// import Horse10 from './images/horse (10).gif';
+
+// const horses = [  
+//   { name: 'Secretariat', number: 1, gif: Horse1 },  
+//   { name: "Man o' War", number: 2, gif: Horse2 },  
+//   { name: 'Seattle Slew', number: 3, gif: Horse3 },  
+//   { name: 'Affirmed', number: 4, gif: Horse4 },  
+//   { name: 'American Pharoah', number: 5, gif: Horse5 },  
+//   { name: 'Justify', number: 6, gif: Horse6 },  
+//   { name: 'Citation', number: 7, gif: Horse7 },  
+//   { name: 'Count Fleet', number: 8, gif: Horse8 },  
+//   { name: 'Assault', number: 9, gif: Horse9 },  
+//   { name: 'Whirlaway', number: 10, gif: Horse10 },
+// ];
+
+// const Leaderboard = () => {
+//   const [trackLength, setTrackLength] = useState(2); // track length in 1/8 mile increments
+//   const [numHorses, setNumHorses] = useState(4);
+//   const [selectedHorseNames, setSelectedHorseNames] = useState([]);
+//   const [raceStarted, setRaceStarted] = useState(false);
+//   const [raceTime, setRaceTime] = useState(0);
+//   const [raceDuration, setRaceDuration] = useState(20); // default duration in seconds
+//   const [horsePositions, setHorsePositions] = useState([]);
+
+//   const timerRef = useRef(null);
+
+//   useEffect(() => {
+//     if (raceStarted) {
+//       const interval = setInterval(() => {
+//         const newPositions = horsePositions.map((position, index) => {
+//           let newPosition = position + Math.random() * 0.5;
+//           if (newPosition >= trackLength) {
+//             newPosition = trackLength;
+//             setRaceStarted(false);
+//             clearInterval(interval);
+//             clearInterval(timerRef.current);
+//           }
+//           return newPosition;
+//         });
+//         setHorsePositions(newPositions);
+//       }, Math.floor(Math.random() * 3000) + 2000); // update every 2-5 seconds
+//       return () => clearInterval(interval);
+//     }
+//   }, [raceStarted, horsePositions, trackLength]);
+
+//   const handleStartRace = () => {
+//     const numHorses = Math.max(4, Math.floor(Math.random() * 7 + 4));
+//     const newHorsePositions = Array(numHorses).fill(0);
+//     const newSelectedHorseNames = Array(numHorses).fill("");
+//     setSelectedHorseNames(newSelectedHorseNames);
+//     setHorsePositions(newHorsePositions);
+//     setNumHorses(numHorses);
+//     setRaceStarted(true);
+//     setRaceTime(0);
+//     setRaceDuration(Math.floor(Math.random() * 11) + 20); //
+// // clear any existing timers
+// clearInterval(timerRef.current);
+//     // start timer for race duration
+// const timer = setInterval(() => {
+//   setRaceTime((time) => time + 1);
+// }, 1000);
+// timerRef.current = timer;
+// };
+
+// const handleSelectHorse = (index, name) => {
+// const newSelectedHorseNames = [...selectedHorseNames];
+// newSelectedHorseNames[index] = name;
+// setSelectedHorseNames(newSelectedHorseNames);
+// };
+
+// return (
+// <div className="leaderboard">
+// <div className="controls">
+// <label>
+// Track Length:
+// <input
+// type="range"
+// min={2}
+// max={10}
+// value={trackLength}
+// onChange={(e) => setTrackLength(Number(e.target.value))}
+// />
+// {trackLength * 0.125} miles
+// </label>
+// <label>
+// Number of Horses:
+// <input
+// type="range"
+// min={4}
+// max={10}
+// value={numHorses}
+// onChange={(e) => setNumHorses(Number(e.target.value))}
+// />
+// {numHorses}
+// </label>
+// <button disabled={raceStarted} onClick={handleStartRace}>
+// Start Race
+// </button>
+// <div className="time">
+// {`raceStarted ? Time: ${raceTime}s : "Click Start to begin race"`}
+// </div>
+// </div>
+// <div className="race">
+// {horses.slice(0, numHorses).map((horse, index) => (
+// <div key={index} className="horse">
+// <img src={horse.gif} alt={horse.name} />
+// <div className="horse-info">
+// <div className="name">{horse.name}</div>
+// <div className="number">#{horse.number}</div>
+// {raceStarted ? (
+// <div className="position">{horsePositions[index].toFixed(2)}</div>
+// ) : (
+// <div className="select">
+// <select
+// value={selectedHorseNames[index]}
+// onChange={(e) => handleSelectHorse(index, e.target.value)}
+// >
+// <option value="">Select Horse</option>
+// {horses.map((horse) => (
+// <option key={horse.name} value={horse.name}>
+// {horse.name}
+// </option>
+// ))}
+// </select>
+// </div>
+// )}
+// </div>
+// </div>
+// ))}
+// </div>
+// </div>
+// );
+// };
+
+// export default Leaderboard;
+    
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect, useRef } from "react";
+// import "./Leaderboard.css";
+
+// import Horse1 from './images/horse (1).gif';
+// import Horse2 from './images/horse (2).gif';
+// import Horse3 from './images/horse (3).gif';
+// import Horse4 from './images/horse (4).gif';
+// import Horse5 from './images/horse (5).gif';
+// import Horse6 from './images/horse (6).gif';
+// import Horse7 from './images/horse (7).gif';
+// import Horse8 from './images/horse (8).gif';
+// import Horse9 from './images/horse (9).gif';
+// import Horse10 from './images/horse (10).gif';
+
+// const horses = [
+// { name: 'Secretariat', number: 1, gif: Horse1 },
+// { name: "Man o' War", number: 2, gif: Horse2 },
+// { name: 'Seattle Slew', number: 3, gif: Horse3 },
+// { name: 'Affirmed', number: 4, gif: Horse4 },
+// { name: 'American Pharoah', number: 5, gif: Horse5 },
+// { name: 'Justify', number: 6, gif: Horse6 },
+// { name: 'Citation', number: 7, gif: Horse7 },
+// { name: 'Count Fleet', number: 8, gif: Horse8 },
+// { name: 'Assault', number: 9, gif: Horse9 },
+// { name: 'Whirlaway', number: 10, gif: Horse10 },
+// ];
+
+// const Leaderboard = () => {
+// const [trackLength, setTrackLength] = useState(2); // track length in 1/8 mile increments
+// const [numHorses, setNumHorses] = useState(6);
+// const [selectedHorseNames, setSelectedHorseNames] = useState(Array(numHorses).fill(""));
+// const [raceStarted, setRaceStarted] = useState(false);
+// const [raceTime, setRaceTime] = useState(0);
+// const [raceDuration, setRaceDuration] = useState(20); // default duration in seconds
+// const [horsePositions, setHorsePositions] = useState(Array(numHorses).fill(0));
+
+// const timerRef = useRef(null);
+
+// useEffect(() => {
+// if (raceStarted) {
+// const interval = setInterval(() => {
+// const newPositions = horsePositions.map((position, index) => {
+// let newPosition = position + Math.random() * 0.5;
+// if (newPosition >= trackLength) {
+// newPosition = trackLength;
+// setRaceStarted(false);
+// clearInterval(interval);
+// clearInterval(timerRef.current);
+// }
+// return newPosition;
+// });
+// setHorsePositions(newPositions);
+// }, Math.floor(Math.random() * 3000) + 2000); // update every 2-5 seconds
+// return () => clearInterval(interval);
+// }
+// }, [raceStarted, horsePositions, trackLength]);
+
+// const handleStartRace = () => {
+// setRaceStarted(true);
+// setRaceTime(0);
+// setHorsePositions(Array(numHorses).fill(0));
+// setRaceDuration(Math.floor(Math.random() * 11) + 20); // race duration
+// timerRef.current = setInterval(() => {
+// setRaceTime((time) => time + 1);
+// }, 1000);
+// };
+
+// const handleTrackLengthChange = (event) => {
+// const value = parseInt(event.target.value);
+// if (!isNaN(value)) {
+// setTrackLength(value);
+// setHorsePositions(Array(numHorses).fill(0));
+// }
+// };
+
+// const handleNumHorsesChange = (event) => {
+// const value = parseInt(event.target.value);
+// if (!isNaN(value)) {
+// setNumHorses(value);
+// setSelectedHorseNames(Array(value).fill(""));
+// setHorsePositions(Array(value).fill(0));
+// }
+// };
+
+// const handleHorseSelect = (event, index) => {
+// const { value } = event.target;
+// const newSelectedHorseNames = [...selectedHorseNames];
+// newSelectedHorseNames[index] = value;
+// setSelectedHorseNames(newSelectedHorseNames);
+// };
+
+// const getRaceResults = () => {
+// const positionsCopy = [...horsePositions];
+// const results = [];
+// for (let i = 0; i < numHorses; i++) {
+// const max = Math.max(...positionsCopy);
+// const index = positionsCopy.indexOf(max);
+// results.push(index);
+// positionsCopy[index] = -1;
+// }
+// return results;
+// };
+
+// const handleResetRace = () => {
+// setRaceStarted(false);
+// setRaceTime(0);
+// setHorsePositions(Array(numHorses).fill(0));
+// clearInterval(timerRef.current);
+// };
+
+// return (
+
+// <div className="leaderboard-container">
+// <div className="header">
+// <h1>Horse Racing Leaderboard</h1>
+// </div>
+// <div className="settings-container">
+// <h2>Race Settings</h2>
+// <label htmlFor="track-length">Track Length (in furlongs):</label>
+// <input type="number" id="track-length" name="track-length" min="1" max="10" value={trackLength} onChange={handleTrackLengthChange} />
+// <label htmlFor="num-horses">Number of Horses:</label>
+// <input type="number" id="num-horses" name="num-horses" min="2" max="10" value={numHorses} onChange={handleNumHorsesChange} />
+// <div className="horse-selection">
+// {Array(numHorses).fill().map((_, index) => (
+// <div key={index} className="horse-selection-item">
+// <label htmlFor={`horse-${index}`}>Horse {index + 1}:</label>
+// <select id={`horse-${index}`} name={`horse-${index}`} value={selectedHorseNames[index]} onChange={(event) => handleHorseSelect(event, index)}>
+// <option value="">Select a horse</option>
+// {horses.map((horse, i) => (
+// <option key={i} value={horse.name}>{horse.name}</option>
+// ))}
+// </select>
+// </div>
+// ))}
+// </div>
+// <button className="start-race-btn" onClick={handleStartRace} disabled={selectedHorseNames.includes("")}>Start Race</button>
+// <button className="reset-race-btn" onClick={handleResetRace}>Reset Race</button>
+// </div>
+// <div className="race-container">
+// {raceStarted ?
+// <>
+// <h2>Race Time: {raceTime} seconds</h2>
+// <div className="race-track">
+// {Array(numHorses).fill().map((_, index) => (
+// <div key={index} className="horse" style={{ left: `${(horsePositions[index]/trackLength) * 100}%`, backgroundImage: `url(${horses[index].gif})` }}>
+// <span>{selectedHorseNames[index]}</span>
+// </div>
+// ))}
+// </div>
+// </>
+// :
+// <h2>Click Start Race to Begin</h2>
+// }
+// </div>
+// <div className="results-container">
+// <h2>Race Results</h2>
+// <ol>
+// {getRaceResults().map((index, i) => (
+// <li key={i}>{selectedHorseNames[index]}</li>
+// ))}
+// </ol>
+// </div>
+// </div>
+// );
+// };
+// export default Leaderboard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState, useEffect, useRef } from "react";
+import "./Leaderboard.css";
+
+import Horse1 from './images/horse (1).gif';
+import Horse2 from './images/horse (2).gif';
+import Horse3 from './images/horse (3).gif';
+import Horse4 from './images/horse (4).gif';
+import Horse5 from './images/horse (5).gif';
+import Horse6 from './images/horse (6).gif';
+import Horse7 from './images/horse (7).gif';
+import Horse8 from './images/horse (8).gif';
+import Horse9 from './images/horse (9).gif';
+import Horse10 from './images/horse (10).gif';
+
+const horses = [  {    name: 'Secretariat',    number: 1,    gif: Horse1,  },  {    name: 'Man o\' War',    number: 2,    gif: Horse2,  },  {    name: 'Seattle Slew',    number: 3,    gif: Horse3,  },  {    name: 'Affirmed',    number: 4,    gif: Horse4,  },  {    name: 'American Pharoah',    number: 5,    gif: Horse5,  },  {    name: 'Justify',    number: 6,    gif: Horse6,  },  {    name: 'Citation',    number: 7,    gif: Horse7,  },  {    name: 'Count Fleet',    number: 8,    gif: Horse8,  },  {    name: 'Assault',    number: 9,    gif: Horse9,  },  {    name: 'Whirlaway',    number: 10,    gif: Horse10,  },];
 
 const Leaderboard = () => {
-  const [selectedHorses, setSelectedHorses] = useState([]);
-  const [raceDuration, setRaceDuration] = useState(null);
-  const [trackLength, setTrackLength] = useState(null);
-  const [racePositions, setRacePositions] = useState([]);
+  const [trackLength, setTrackLength] = useState(2); // track length in 1/8 mile increments
+  const [numHorses, setNumHorses] = useState(6);
+  const [horseNames, setHorseNames] = useState(Array(numHorses).fill(""));
+  const [raceStarted, setRaceStarted] = useState(false);
+  const [raceTime, setRaceTime] = useState(0);
+  const [raceDuration, setRaceDuration] = useState(20); // default duration in seconds
+  const [horsePositions, setHorsePositions] = useState(Array(numHorses).fill(0));
+
+  const timerRef = useRef(null);
 
   useEffect(() => {
-    const duration = (Math.floor(Math.random() * 8) + 12) * 1000; // 12-20 seconds intervals
-    const length = (Math.floor(Math.random() * 16) + 5) * 0.125; // 0.625-2.5 miles intervals
-    setRaceDuration(duration);
-    setTrackLength(length);
-  }, []);
+    if (raceStarted) {
+      const interval = setInterval(() => {
+        const newPositions = horsePositions.map((position, index) => {
+          let newPosition = position + Math.random() * 0.5;
+          if (newPosition >= trackLength) {
+            newPosition = trackLength;
+            setRaceStarted(false);
+            clearInterval(interval);
+            clearInterval(timerRef.current);
+          }
+          return newPosition;
+        });
+        setHorsePositions(newPositions);
+      }, Math.floor(Math.random() * 3000) + 200); // update every .2-3 seconds
+      return () => clearInterval(interval);
+    }
+  }, [raceStarted, horsePositions, trackLength]);
 
-  const startRace = () => {
-    const race = selectedHorses.map((horse) => ({
-      ...horse,
-      time: 0,
-      distance: 0,
-      position: 0
-    }));
-
-    const interval = setInterval(() => {
-      const newRace = [...race];
-      newRace.forEach((horse) => {
-        horse.distance += Math.floor(Math.random() * 10) + 10;
-        horse.time += 100;
-        const position = newRace.filter((h) => h.distance > horse.distance).length + 1;
-        horse.position = position;
-      });
-
-      if (race.some((horse) => horse.distance >= trackLength * 1609)) {
-        clearInterval(interval);
-        const sortedRace = [...race].sort((a, b) => a.time - b.time);
-        setRacePositions(sortedRace);
-      } else {
-        setRacePositions(newRace);
+  const handleStartRace = () => {
+    setRaceStarted(true);
+    setRaceTime(0);
+    setHorsePositions(Array(numHorses).fill(0));
+    setRaceDuration(Math.floor(Math.random() * 11) + 20); // race duration
+    timerRef.current = setInterval(() => {
+      setRaceTime((time) => time + 1);
+      }, 1000);
+      };
+      
+      const handleTrackLengthChange = (event) => {
+      const value = parseInt(event.target.value);
+      if (!isNaN(value)) {
+      setTrackLength(value);
+      setHorsePositions(Array(numHorses).fill(0));
       }
-    }, (Math.floor(Math.random() * 7) + 1) * 1000); // 1-7 seconds intervals
-  };
-
-  const resetGame = () => {
-    setSelectedHorses([]);
-    setRaceDuration(null);
-    setTrackLength(null);
-    setRacePositions([]);
-  };
-
-  return (
-    <div className="App">
-      <h1>Horse Racing Leaderboard</h1>
-      <div className="input-group">
-        <label htmlFor="horse-select">Select Horses:</label>
-        <select
-          id="horse-select"
-          multiple
-          value={selectedHorses.map((horse) => horse.number)}
-          onChange={(e) =>
-            setSelectedHorses(
-              Array.from(e.target.selectedOptions, (option) =>
-                horses.find((horse) => horse.number === Number(option.value))
-              )
-              )
-            }
-          >
-            {horses.map((horse) => (
-              <option key={horse.number} value={horse.number}>
-                {horse.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="input-group">
-          <label htmlFor="race-duration-input">Race Duration:</label>
-          <input
-            id="race-duration-input"
-            type="number"
-            value={raceDuration / 1000 || ""}
-            min={12}
-            max={20}
-            step={1}
-            onChange={(e) => setRaceDuration(e.target.value * 1000)}
-          />
-          <span>seconds</span>
-        </div>
-        <div className="input-group">
-          <label htmlFor="track-length-input">Track Length:</label>
-          <input
-            id="track-length-input"
-            type="number"
-            value={trackLength || ""}
-            min={0.625}
-            max={2.5}
-            step={0.125}
-            onChange={(e) => setTrackLength(e.target.value)}
-          />
-          <span>miles</span>
-        </div>
-        <button onClick={startRace} disabled={!selectedHorses.length || !raceDuration || !trackLength}>
-          Start Race
-        </button>
-        <button onClick={resetGame}>Reset</button>
-        {racePositions.length > 0 && (
-          <div className="leaderboard">
-            <h2>Final Leaderboard</h2>
-            {racePositions.map((horse) => (
-              <div key={horse.number} className="horse">
-                <img src={horse.gif} alt={horse.name} />
-                <div className="info">
-                  <h3>{horse.name}</h3>
-                  <p>Distance: {horse.distance / 1609} miles</p>
-                  <p>Time: {horse.time / 1000} seconds</p>
-                  <p>Position: {horse.position}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+      };
+      
+      const handleNumHorsesChange = (event) => {
+      const value = parseInt(event.target.value);
+      if (!isNaN(value)) {
+      setNumHorses(value);
+      setHorseNames(Array(value).fill(""));
+      setHorsePositions(Array(value).fill(0));
+      }
+      };
+      
+      const handleHorseNameChange = (event, index) => {
+      const newHorseNames = [...horseNames];
+      newHorseNames[index] = event.target.value;
+      setHorseNames(newHorseNames);
+      };
+      
+      return (
+      <div className="leaderboard">
+      <div className="controls">
+      <label htmlFor="track-length-input">Track Length (in 1/8 mile increments):</label>
+      <input
+             type="number"
+             id="track-length-input"
+             value={trackLength}
+             min="2"
+             max="10"
+             onChange={handleTrackLengthChange}
+           />
+      <label htmlFor="num-horses-input">Number of Horses:</label>
+      <input
+             type="number"
+             id="num-horses-input"
+             value={numHorses}
+             min="2"
+             max="10"
+             onChange={handleNumHorsesChange}
+           />
+      <button onClick={handleStartRace} disabled={raceStarted}>
+      Start Race
+      </button>
+      </div>
+      {horseNames.map((horseName, index) => (
+      <div className="horse" key={index}>
+      <img src={horses[index].gif} alt={horses[index].name} />
+      <div className="details">
+      <div className="name">
+      <input
+      type="text"
+      placeholder={`Horse ${index + 1}`}
+      value={horseName}
+      onChange={(event) => handleHorseNameChange(event, index)}
+      />
+      </div>
+      {/* <div className="number">{horses[index].number}</div>
+      <div className="position">{horsePositions[index].toFixed(2)} / {trackLength}</div> */}
+      </div>
+      </div>
+      ))}
+      {/* {raceStarted && <div className="timer">{raceTime} seconds</div>}
+      {raceStarted && <div className="duration">Race duration: {raceDuration} seconds</div>} */}
       </div>
       );
-    };
+      };
+      
+      export default Leaderboard;
+      
+      
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+  ///////////////////////////////////////////////////////////////////////////////
+// works very good
+// import React, { useState, useEffect } from 'react';
+// import Horse1 from './images/horse (1).gif';
+// import Horse2 from './images/horse (2).gif';
+// import Horse3 from './images/horse (3).gif';
+// import Horse4 from './images/horse (4).gif';
+// import Horse5 from './images/horse (5).gif';
+// import Horse6 from './images/horse (6).gif';
+// import Horse7 from './images/horse (7).gif';
+// import Horse8 from './images/horse (8).gif';
+// import Horse9 from './images/horse (9).gif';
+// import Horse10 from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+// const horses = [
+//   {
+//     name: 'Secretariat',
+//     number: 1,
+//     gif: Horse1,
+//   },
+//   {
+//     name: 'Man o\' War',
+//     number: 2,
+//     gif: Horse2,
+//   },
+//   {
+//     name: 'Seattle Slew',
+//     number: 3,
+//     gif: Horse3,
+//   },
+//   {
+//     name: 'Affirmed',
+//     number: 4,
+//     gif: Horse4,
+//   },
+//   {
+//     name: 'American Pharoah',
+//     number: 5,
+//     gif: Horse5,
+//   },
+//   {
+//     name: 'Justify',
+//     number: 6,
+//     gif: Horse6,
+//   },
+//   {
+//     name: 'Citation',
+//     number: 7,
+//     gif: Horse7,
+//   },
+//   {
+//     name: 'Count Fleet',
+//     number: 8,
+//     gif: Horse8,
+//   },
+//   {
+//     name: 'Assault',
+//     number: 9,
+//     gif: Horse9,
+//   },
+//   {
+//     name: 'Whirlaway',
+//     number: 10,
+//     gif: Horse10,
+//   },
+// ];
+
+// const Leaderboard = () => {
+//   const [raceTime, setRaceTime] = useState(30); // default race time of 30 seconds
+//   const [raceStarted, setRaceStarted] = useState(false);
+//   const [raceFinished, setRaceFinished] = useState(false);
+//   const [horsesState, setHorsesState] = useState(horses.slice(0, 4).map((horse, index) => ({
+//     ...horse,
+//     position: 0,
+//     speed: Math.floor(Math.random() * 10) + 1, // random speed between 1 and 10
+//     distance: 0,
+//     odds: Math.floor(Math.random() * 10) + 1, // random odds between 1 and 10
+//     rank: null,
+//   })));
+//   const [raceDuration, setRaceDuration] = useState(30); // default race duration of 30 seconds
+//   const [selectedHorses, setSelectedHorses] = useState(4); // default number of horses in the race is 4
+
+//   const startRace = () => {
+//     setRaceStarted(true);
+//     setRaceFinished(false);
+//     setHorsesState(horses.slice(0, selectedHorses).map(horse => ({
+//       ...horse,
+//       position: 0,
+//       distance: 0,
+//       rank: null,
+//       speed: Math.floor(Math.random() * 10) + 1, // random speed between 1 and 10
+//       odds: Math.floor(Math.random() * 10) + 1, // random odds between 1 and 10
+//     })));
+//   };
+
+//   const finishRace = () => {
+//     setRaceStarted(false);
+//     setRaceFinished(true);
+//   };
+
+//   useEffect(() => {
+//     let intervalId;
+//     if (raceStarted) {
+//       intervalId = setInterval(() => {
+//         setHorsesState(prevHorsesState => {
+//           // check if any horse has reached the finish line
+// const finishedHorses = prevHorsesState.filter(horse => horse.distance >= 100);
+// if (finishedHorses.length === prevHorsesState.length) {
+// finishRace();
+// return prevHorsesState;
+// }
+//       // update the position, distance and rank of each horse
+//       const updatedHorses = prevHorsesState.map((horse, index) => {
+//         const newDistance = horse.distance + horse.speed;
+//         const newPosition = Math.min(newDistance, 100); // limit the position to 100
+//         const newRank = finishedHorses.length + index + 1; // rank the horses that have finished
+
+//         return {
+//           ...horse,
+//           position: newPosition,
+//           distance: newDistance,
+//           rank: horse.rank || (newPosition === 100 ? newRank : null), // only set rank if the horse has finished
+//         };
+//       });
+
+//       // sort the horses by position
+//       updatedHorses.sort((horseA, horseB) => horseB.position - horseA.position);
+
+//       return updatedHorses;
+//     });
+//   }, 1000);
+// }
+
+// return () => clearInterval(intervalId); // clear the interval when component unmounts or race is finished
+// }, [raceStarted]);
+
+// return (
+// <div className="leaderboard">
+// <div className="header">
+// <h1>Horse Racing Leaderboard</h1>
+// <p>Select number of horses:</p>
+// <select value={selectedHorses} onChange={(e) => setSelectedHorses(Number(e.target.value))}>
+// {[...Array(horses.length)].map((_, index) => (
+// <option key={index} value={index + 1}>{index + 1}</option>
+// ))}
+// </select>
+// <p>Select race duration:</p>
+// <select value={raceDuration} onChange={(e) => setRaceDuration(Number(e.target.value))}>
+// {[...Array(30)].map((_, index) => (
+// <option key={index} value={index + 1}>{index + 1} seconds</option>
+// ))}
+// </select>
+// <button disabled={raceStarted} onClick={startRace}>Start Race</button>
+// </div>
+// <div className="race-track">
+// {horsesState.map((horse, index) => (
+// <div key={index} className={`horse horse-${index + 1}} style={{ left: ${horse.position}% }`}>
+// <img src={horse.gif} alt={horse.name} />
+// {/* <div className="horse-info">
+// <span className="horse-name">{horse.name}</span>
+// <span className="horse-odds">{horse.odds}:1</span>
+// </div> */}
+// </div>
+// ))}
+// </div>
+// <div className="footer">
+// {raceStarted && <p>Race is in progress...</p>}
+// {raceFinished && (
+// <>
+// <p>Race has finished!</p>
+// <table>
+// <thead>
+// <tr>
+// <th>Rank</th>
+// <th>Name</th>
+// <th>Odds</th>
+// </tr>
+// </thead>
+// <tbody>
+// {horsesState.map((horse, index) => (
+// <tr key={index}>
+// <td>{horse.rank}</td>
+// <td>{horse.name}</td>
+// <td>{horse.odds}:1</td>
+// </tr>
+// ))}
+// </tbody>
+// </table>
+// </>
+// )}
+// </div>
+// </div>
+// );
+// };
+
+// export default Leaderboard;
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import Horse1 from './images/horse (1).gif';
+// import Horse2 from './images/horse (2).gif';
+// import Horse3 from './images/horse (3).gif';
+// import Horse4 from './images/horse (4).gif';
+// import Horse5 from './images/horse (5).gif';
+// import Horse6 from './images/horse (6).gif';
+// import Horse7 from './images/horse (7).gif';
+// import Horse8 from './images/horse (8).gif';
+// import Horse9 from './images/horse (9).gif';
+// import Horse10 from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+// const horses = [
+// {
+// name: 'Secretariat',
+// number: 1,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse1,
+// },
+// {
+// name: "Man o' War",
+// number: 2,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse2,
+// },
+// {
+// name: 'Seattle Slew',
+// number: 3,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse3,
+// },
+// {
+// name: 'Affirmed',
+// number: 4,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse4,
+// },
+// {
+// name: 'American Pharoah',
+// number: 5,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse5,
+// },
+// {
+// name: 'Justify',
+// number: 6,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse6,
+// },
+// {
+// name: 'Citation',
+// number: 7,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse7,
+// },
+// {
+// name: 'Count Fleet',
+// number: 8,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse8,
+// },
+// {
+// name: 'Assault',
+// number: 9,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse9,
+// },
+// {
+// name: 'Whirlaway',
+// number: 10,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse10,
+// },
+// ];
+
+// const trackLengths = [0.6, 1.2, 1.8, 2.4];
+
+// const Leaderboard = () => {
+// const [raceStarted, setRaceStarted] = useState(false);
+// const [raceFinished, setRaceFinished] = useState(false);
+// const [horsesState, setHorsesState] = useState([]);
+// const [selectedHorses, setSelectedHorses] = useState([]);
+// const [trackLength, setTrackLength] = useState(trackLengths[Math.floor(Math.random() * trackLengths.length)]);
+// const [raceTime, setRaceTime] = useState(0);
+
+// useEffect(() => {
+// setHorsesState(selectedHorses.map((horse, index) => ({
+// ...horses.find(h => h.name === horse),
+// position: 0,
+// distance: 0,
+// rank: null,
+// speed: Math.floor(Math.random() * 10)
+// })));
+// }, [selectedHorses]);
+
+// const startRace = () => {
+//   setRaceStarted(true);
+//   setRaceFinished(false);
+//   setHorsesState(horsesState.map(horse => ({
+//   ...horse,
+//   position: 0,
+//   distance: 0,
+//   rank: null
+//   })));
+//   const intervalId = setInterval(() => {
+//   setHorsesState(horsesState => {
+//   let raceFinished = true;
+//   const updatedHorses = horsesState.map(horse => {
+//   const newDistance = horse.distance + horse.speed * 0.1;
+//   if (newDistance >= trackLength) {
+//   horse.position = trackLength;
+//   horse.rank = 1;
+//   horse.distance = trackLength;
+//   } else {
+//   horse.position = newDistance;
+//   horse.distance = newDistance;
+//   raceFinished = false;
+//   }
+//   return horse;
+//   }).sort((a, b) => b.position - a.position);
+//   if (raceFinished) {
+//   clearInterval(intervalId);
+//   setRaceFinished(true);
+//   setRaceTime(Date.now() - startTime);
+//   }
+//   return updatedHorses;
+//   });
+//   }, 100);
+//   const startTime = Date.now();
+//   };
+  
+//   const handleHorseSelection = (event) => {
+//   setSelectedHorses(Array.from(event.target.selectedOptions, option => option.value));
+//   };
+  
+//   const handleReset = () => {
+//   setSelectedHorses([]);
+//   setRaceStarted(false);
+//   setRaceFinished(false);
+//   setHorsesState([]);
+//   setTrackLength(trackLengths[Math.floor(Math.random() * trackLengths.length)]);
+//   setRaceTime(0);
+//   };
+  
+//   return (
+  
+//     <div className="leaderboard-container">
+//       <h1>Horse Race</h1>
+//       <div className="race-setup">
+//         <label htmlFor="horse-select">Select Horses:</label>
+//         <select id="horse-select" multiple={true} onChange={handleHorseSelection}>
+//           {horses.map(horse => <option key={horse.number} value={horse.name}>{horse.name}</option>)}
+//         </select>
+//         <button onClick={startRace} disabled={raceStarted || selectedHorses.length < 2}>Start Race</button>
+//         <button onClick={handleReset}>Reset</button>
+//       </div>
+//       {raceStarted && (
+//         <div>
+//           <h2>Race in progress...</h2>
+//           <div className="race-track">
+//             {horsesState.map(horse => (
+//               <div key={horse.number} className="horse" style={{ backgroundImage: `url(${horse.gif})`, left: `${(horse.position / trackLength) * 100}%` }}>
+//                 {horse.rank && <span className="rank">{horse.rank}</span>}
+//               </div>
+//             ))}
+//             <div className="track-length" style={{ width: `${trackLength * 100}vw` }}></div>
+//           </div>
+//         </div>
+//       )}
+//       {raceFinished && (
+//         <div>
+//           <h2>Race finished in {raceTime / 1000} seconds!</h2>
+//           <table>
+//             <thead>
+//               <tr>
+//                 <th>Rank</th>
+//                 <th>Horse</th>
+//                 <th>Time</th>
+//                 <th>Odds</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {horsesState.map(horse => (
+//                 <tr key={horse.number}>
+//                   <td>{horse.rank}</td>
+//                   <td>{horse.name}</td>
+//                   <td>{raceTime / 1000} seconds</td>
+//                   <td>{horse.odds}:1</td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//           </table>
+//           <button onClick={handleReset}>Reset</button>
+//                      </div>
+// )}
+
+//   </div>
+// );
+// };
+// export default Leaderboard;
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import Horse1 from './images/horse (1).gif';
+// import Horse2 from './images/horse (2).gif';
+// import Horse3 from './images/horse (3).gif';
+// import Horse4 from './images/horse (4).gif';
+// import Horse5 from './images/horse (5).gif';
+// import Horse6 from './images/horse (6).gif';
+// import Horse7 from './images/horse (7).gif';
+// import Horse8 from './images/horse (8).gif';
+// import Horse9 from './images/horse (9).gif';
+// import Horse10 from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+// const horses = [
+//   {
+//     name: 'Secretariat',
+//     number: 1,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse1,
+//   },
+//   {
+//     name: "Man o' War",
+//     number: 2,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse2,
+//   },
+//   {
+//     name: 'Seattle Slew',
+//     number: 3,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse3,
+//   },
+//   {
+//     name: 'Affirmed',
+//     number: 4,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse4,
+//   },
+//   {
+//     name: 'American Pharoah',
+//     number: 5,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse5,
+//   },
+//   {
+//     name: 'Justify',
+//     number: 6,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse6,
+//   },
+//   {
+//     name: 'Citation',
+//     number: 7,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse7,
+//   },
+//   {
+//     name: 'Count Fleet',
+//     number: 8,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse8,
+//   },
+//   {
+//     name: 'Assault',
+//     number: 9,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse9,
+//   },
+//   {
+//     name: 'Whirlaway',
+//     number: 10,
+//     odds: Math.floor(Math.random() * 10) + 1,
+//     gif: Horse10,
+//   },
+// ];
+
+// const trackLengths = [0.6, 1.2, 1.8, 2.4];
+
+// const Leaderboard = () => {
+//   const [raceStarted, setRaceStarted] = useState(false);
+//   const [raceFinished, setRaceFinished] = useState(false);
+//   const [horsesState, setHorsesState] = useState([]);
+//   const [selectedHorses, setSelectedHorses] = useState(4); // default number of horses in the race is 4
+//   const [trackLength, setTrackLength] = useState(trackLengths[Math.floor(Math.random() * trackLengths.length)]);
+//   const [raceTime, setRaceTime] = useState(0);
+
+//   useEffect(() => {
+//     setHorsesState(horses.slice(0, selectedHorses).map((horse, index) => ({
+//       ...horse,
+//       position: 0,
+//       distance: 0,
+//       rank: null,
+//       speed: Math.floor(Math.random() * 10)
+//     })));
+//   }, [selectedHorses]);
+  
+//   const startRace = () => {
+//   setRaceStarted(true);
+//   let interval = setInterval(() => {
+//   setHorsesState(horsesState => {
+//   let newHorsesState = [...horsesState];
+//   let finishedHorses = 0;
+//   newHorsesState.forEach(horse => {
+//   if (horse.rank !== null) {
+//   return;
+//   }
+//   horse.distance += horse.speed;
+//   if (horse.distance >= trackLength) {
+//   horse.position = trackLength;
+//   horse.rank = ++finishedHorses;
+//   if (finishedHorses === newHorsesState.length) {
+//   setRaceFinished(true);
+//   clearInterval(interval);
+//   }
+//   } else {
+//   horse.position = (horse.distance / trackLength) * 100;
+//   }
+//   });
+//   setRaceTime(prev => prev + 1);
+//   return newHorsesState;
+//   });
+//   }, 100);
+//   };
+  
+//   const restartRace = () => {
+//   setRaceStarted(false);
+//   setRaceFinished(false);
+//   setRaceTime(0);
+//   setSelectedHorses(4);
+//   };
+  
+//   return (
+//   <div className="leaderboard">
+//   <h1>Horse Race</h1>
+//   <div className="race-info">
+//   <div className="race-details">
+//   <div className="race-detail">
+//   <strong>Number of horses:</strong> {selectedHorses}
+//   </div>
+//   <div className="race-detail">
+//   <strong>Track length:</strong> {trackLength} miles
+//   </div>
+//   <div className="race-detail">
+//   <strong>Race time:</strong> {raceTime} seconds
+//   </div>
+//   </div>
+//   <div className="race-buttons">
+//   {!raceStarted && (
+//   <>
+//   <button onClick={() => setSelectedHorses(4)}>4 horses</button>
+//   <button onClick={() => setSelectedHorses(6)}>6 horses</button>
+//   <button onClick={() => setSelectedHorses(8)}>8 horses</button>
+//   <button onClick={() => setSelectedHorses(10)}>10 horses</button>
+//   <button onClick={startRace}>Start race</button>
+//   </>
+//   )}
+//   {raceStarted && !raceFinished && (
+//   <>
+//   <button onClick={() => setTrackLength(trackLengths[Math.floor(Math.random() * trackLengths.length)])}>
+//   Change track length
+//   </button>
+//   <button onClick={() => setHorsesState(horsesState => horsesState.map(horse => ({...horse, speed: Math.floor(Math.random() * 10)})))}>
+//   Shuffle horses
+//   </button>
+//   </>
+//   )}
+//   {raceFinished && (
+//   <button onClick={restartRace}>Restart race</button>
+//   )}
+//   </div>
+//   </div>
+//   <div className="race-track">
+//   {horsesState.map(horse => (
+//   <div key={horse.number} className="horse" style={{ left: `${horse.position}%`}}>
+//   <img src={horse.gif} alt={horse.name} />
+//   <div className="horse-info">
+//   <div className="horse-name">{horse.name}</div>
+//   <div className="horse-odds">{horse.odds}:1</div>
+//   </div>
+//   </div>
+//   ))}
+//   {raceFinished && (
+//   <div className="finish-line" style={{ left: `${trackLength * 100}%`}}>
+//   <div>Finish Line</div>
+//   </div>
+//   )}
+//   </div>
+//   </div>
+//   );
+//   };
+  
+//   export default Leaderboard;
+  
+  
+  
+  
+  
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import Horse1 from './images/horse (1).gif';
+// import Horse2 from './images/horse (2).gif';
+// import Horse3 from './images/horse (3).gif';
+// import Horse4 from './images/horse (4).gif';
+// import Horse5 from './images/horse (5).gif';
+// import Horse6 from './images/horse (6).gif';
+// import Horse7 from './images/horse (7).gif';
+// import Horse8 from './images/horse (8).gif';
+// import Horse9 from './images/horse (9).gif';
+// import Horse10 from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+// const horses = [
+// {
+// name: 'Secretariat',
+// number: 1,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse1,
+// },
+// {
+// name: "Man o' War",
+// number: 2,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse2,
+// },
+// {
+// name: 'Seattle Slew',
+// number: 3,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse3,
+// },
+// {
+// name: 'Affirmed',
+// number: 4,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse4,
+// },
+// {
+// name: 'American Pharoah',
+// number: 5,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse5,
+// },
+// {
+// name: 'Justify',
+// number: 6,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse6,
+// },
+// {
+// name: 'Citation',
+// number: 7,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse7,
+// },
+// {
+// name: 'Count Fleet',
+// number: 8,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse8,
+// },
+// {
+// name: 'Assault',
+// number: 9,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse9,
+// },
+// {
+// name: 'Whirlaway',
+// number: 10,
+// odds: Math.floor(Math.random() * 10) + 1,
+// gif: Horse10,
+// },
+// ];
+
+// const Leaderboard = () => {
+// const [raceStarted, setRaceStarted] = useState(false);
+// const [raceFinished, setRaceFinished] = useState(false);
+// const [horsesState, setHorsesState] = useState([]);
+// const [selectedHorses, setSelectedHorses] = useState(4); // default number of horses in the race is 4
+// const [trackLength, setTrackLength] = useState(Math.floor(Math.random() * 20) + 6);
+// const [raceTime, setRaceTime] = useState(0);
+
+// useEffect(() => {
+// setHorsesState(horses.slice(0, selectedHorses).map((horse, index) => ({
+// ...horse,
+// position: 0,
+// distance: 0,
+// rank: null,
+// speed: Math.floor(Math.random() * 10) + 1, // random speed between 1 and 10
+// })));
+// }, [selectedHorses]);
+
+// const startRace = () => {
+// setRaceStarted(true);
+
+// setHorsesState(horsesState.map((horse) => ({
+// ...horse,
+// distance: 0,
+// })));
+
+// const timer = setInterval(() => {
+// setHorsesState(horsesState.map((horse) => {
+// const newDistance = horse.distance + horse.speed;
+// const newPosition = Math.round((newDistance / trackLength) * 100);
+
+// if (newPosition >= 100 && !horse.rank) {
+// // horse has crossed the finish line and has not been ranked yet
+// const rankedHorses = horsesState.filter((h) => h.rank !== null);
+// const rank = rankedHorses.length + 1;
+// return {
+// ...horse,
+// position: newPosition,
+// distance: newDistance,
+// rank,
+// };
+// } else {
+// return {
+// ...horse,
+// position: newPosition,
+// distance: newDistance,
+// };
+// }
+// }));
+
+// setRaceTime((prevTime) => prevTime + 1);
+// }, 1000);
+
+// setTimeout(() => {
+// setRaceFinished(true);
+// clearInterval(timer);
+// }, (trackLength * 1000) + 1000);
+// };
+
+// const resetRace = () => {
+// setRaceStarted(false);
+// setRaceFinished(false);
+// setHorsesState([]);
+// setSelectedHorses(4);
+// setTrackLength(Math.floor(Math.random() * 20) + 6);
+// setRaceTime(0);
+// };
+
+// return (
+
+// <div className="Leaderboard">
+// <h1>Horse Racing</h1>
+// {!raceStarted && (
+// <>
+// <label htmlFor="horse-select">Select number of horses:</label>
+// <select id="horse-select" value={selectedHorses} onChange={(e) => setSelectedHorses(parseInt(e.target.value))}>
+// <option value={2}>2</option>
+// <option value={3}>3</option>
+// <option value={4}>4</option>
+// <option value={5}>5</option>
+// <option value={6}>6</option>
+// <option value={7}>7</option>
+// <option value={8}>8</option>
+// <option value={9}>9</option>
+// <option value={10}>10</option>
+// </select>
+// <br />
+// <button onClick={startRace}>Start Race</button>
+// </>
+// )}
+// {raceStarted && !raceFinished && (
+// <>
+
+// <p>Race time: {raceTime}s</p>
+// <div className="race-track">
+// {horsesState.map((horse) => (
+// <div className="horse" key={horse.number} style={{ left: `${horse.position}%` }}>
+// <img src={horse.gif} alt={horse.name} />
+// </div>
+// ))}
+// <div className="finish-line" style={{ left: `${100 - ((1 / trackLength) * 100)}%` }}></div>
+// </div>
+// </>
+// )}
+// {raceFinished && (
+// <>
+
+// <p>Race finished in {raceTime}s!</p>
+// <table>
+// <thead>
+// <tr>
+// <th>Rank</th>
+// <th>Name</th>
+// <th>Odds</th>
+// </tr>
+// </thead>
+// <tbody>
+// {horsesState.sort((a, b) => a.rank - b.rank).map((horse) => (
+// <tr key={horse.number}>
+// <td>{horse.rank}</td>
+// <td>{horse.name}</td>
+// <td>{horse.odds}</td>
+// </tr>
+// ))}
+// </tbody>
+// </table>
+// <button onClick={resetRace}>Reset Race</button>
+// </>
+// )}
+// </div>
+// );
+// };
+// export default Leaderboard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import Horse1 from './images/horse (1).gif';
+// import Horse2 from './images/horse (2).gif';
+// import Horse3 from './images/horse (3).gif';
+// import Horse4 from './images/horse (4).gif';
+// import Horse5 from './images/horse (5).gif';
+// import Horse6 from './images/horse (6).gif';
+// import Horse7 from './images/horse (7).gif';
+// import Horse8 from './images/horse (8).gif';
+// import Horse9 from './images/horse (9).gif';
+// import Horse10 from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+// const horses = [
+// {
+// name: 'Secretariat',
+// number: 1,
+// gif: Horse1,
+// },
+// {
+// name: "Man o' War",
+// number: 2,
+// gif: Horse2,
+// },
+// {
+// name: 'Seattle Slew',
+// number: 3,
+// gif: Horse3,
+// },
+// {
+// name: 'Affirmed',
+// number: 4,
+// gif: Horse4,
+// },
+// {
+// name: 'American Pharoah',
+// number: 5,
+// gif: Horse5,
+// },
+// {
+// name: 'Justify',
+// number: 6,
+// gif: Horse6,
+// },
+// {
+// name: 'Citation',
+// number: 7,
+// gif: Horse7,
+// },
+// {
+// name: 'Count Fleet',
+// number: 8,
+// gif: Horse8,
+// },
+// {
+// name: 'Assault',
+// number: 9,
+// gif: Horse9,
+// },
+// {
+// name: 'Whirlaway',
+// number: 10,
+// gif: Horse10,
+// },
+// ];
+
+// const Leaderboard = () => {
+// const [raceTime, setRaceTime] = useState(null);
+// const [raceStarted, setRaceStarted] = useState(false);
+// const [raceFinished, setRaceFinished] = useState(false);
+// const [horsesState, setHorsesState] = useState([]);
+// const [selectedHorses, setSelectedHorses] = useState(4);
+// const [trackLength, setTrackLength] = useState(null);
+
+// const startRace = () => {
+// setRaceStarted(true);
+// setRaceFinished(false);
+// setHorsesState(horses.slice(0, selectedHorses).map(horse => ({
+// ...horse,
+// position: 0,
+// distance: 0,
+// rank: null,
+// speed: Math.floor(Math.random() * 10) + 1,
+// odds: Math.floor(Math.random() * 10) + 1,
+// })));
+// };
+
+// const resetRace = () => {
+// setRaceStarted(false);
+// setRaceFinished(false);
+// setRaceTime(null);
+// setHorsesState([]);
+// };
+
+// useEffect(() => {
+// const min = 20;
+// const max = 120;
+// setRaceTime(Math.floor(Math.random() * (max - min + 1)) + min);
+// }, []);
+
+// useEffect(() => {
+// const min = 0.6;
+// const max = 2.6;
+// setTrackLength((Math.random() * (max - min) + min).toFixed(2));
+// }, []);
+
+// useEffect(() => {
+// if (raceStarted && !raceFinished && horsesState.length > 0) {
+// const interval = setInterval(() => {
+// setHorsesState(horsesState => horsesState.map((horse, index) => {
+// const distance = horse.distance + (horse.speed /trackLength);
+// const position = distance / trackLength * 100;
+// return {
+// ...horse,
+// position,
+// distance,
+// };
+// }));
+// }, 100);
+// return () => clearInterval(interval);
+// }
+// }, [raceStarted, raceFinished, horsesState, trackLength]);
+// useEffect(() => {
+// if (raceStarted && !raceFinished && horsesState.length > 0) {
+// const interval = setInterval(() => {
+// setHorsesState(horsesState => {
+// const sortedHorses = [...horsesState].sort((a, b) => b.distance - a.distance);
+// let rank = 1;
+// sortedHorses[0].rank = rank;
+// for (let i = 1; i < sortedHorses.length; i++) {
+// if (sortedHorses[i].distance === sortedHorses[i - 1].distance) {
+// sortedHorses[i].rank = rank;
+// } else {
+// rank = i + 1;
+// sortedHorses[i].rank = rank;
+// }
+// }
+// return sortedHorses;
+// });
+// }, 100);
+// return () => clearInterval(interval);
+// }
+// }, [raceStarted, raceFinished, horsesState]);
+
+// useEffect(() => {
+// if (raceStarted && !raceFinished && horsesState.length > 0) {
+// const interval = setInterval(() => {
+// const finishedHorses = horsesState.filter(horse => horse.distance >= trackLength);
+// if (finishedHorses.length === horsesState.length) {
+// setRaceFinished(true);
+// setRaceStarted(false);
+// clearInterval(interval);
+// }
+// }, 100);
+// return () => clearInterval(interval);
+// }
+// }, [raceStarted, raceFinished, horsesState, trackLength]);
+
+// return (
+
+// <div className="leaderboard-container">
+// <h1>React Racecourse</h1>
+// {!raceStarted && !raceFinished && (
+// <>
+// <p>Select number of horses:</p>
+// <select value={selectedHorses} onChange={e => setSelectedHorses(parseInt(e.target.value))}>
+// {[...Array(horses.length)].map((_, i) => (
+// <option key={i + 1} value={i + 1}>
+// {i + 1}
+// </option>
+// ))}
+// </select>
+// <button onClick={startRace}>Start Race</button>
+// </>
+// )}
+// {raceStarted && !raceFinished && (
+// <>
+// <p>Race is in progress...</p>
+// <p>Race time: {raceTime} seconds</p>
+// <p>Track length: {trackLength} km</p>
+// <div className="race-track">
+// {horsesState.map(horse => (
+// <div key={horse.number} className="horse" style={{ left: `${horse.position}%` }}>
+// <img src={horse.gif} alt={horse.name} />
+// <p className="horse-info">
+// {horse.name} ({horse.odds}:1)
+// </p>
+// </div>
+// ))}
+// </div>
+// </>
+// )}
+// {!raceStarted && raceFinished && (
+// <>
+// <p>Race is finished!</p>
+// <p>Results:</p>
+// <table>
+// <thead>
+// <tr>
+// <th>Rank</th>
+// <th>Name</th>
+// <th>Odds</th>
+// <th>Time</th>
+// </tr>
+// </thead>
+// <tbody>
+// {horsesState.map(horse => (
+// <tr key={horse.number}>
+// <td>{horse.rank}</td>
+// <td>{horse.name}</td>
+// <td>{horse.odds}:1</td>
+// <td>{raceTime} seconds</td>
+// </tr>
+// ))}
+// </tbody>
+// </table>
+// <button onClick={resetRace}>Start Over</button>
+// </>
+// )}
+// </div>
+// );
+// };
+// export default Leaderboard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import Horse1 from './images/horse (1).gif';
+// import Horse2 from './images/horse (2).gif';
+// import Horse3 from './images/horse (3).gif';
+// import Horse4 from './images/horse (4).gif';
+// import Horse5 from './images/horse (5).gif';
+// import Horse6 from './images/horse (6).gif';
+// import Horse7 from './images/horse (7).gif';
+// import Horse8 from './images/horse (8).gif';
+// import Horse9 from './images/horse (9).gif';
+// import Horse10 from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+// const horses = [
+//   {
+//     name: 'Secretariat',
+//     number: 1,
+//     gif: Horse1,
+//   },
+//   {
+//     name: 'Man o\' War',
+//     number: 2,
+//     gif: Horse2,
+//   },
+//   {
+//     name: 'Seattle Slew',
+//     number: 3,
+//     gif: Horse3,
+//   },
+//   {
+//     name: 'Affirmed',
+//     number: 4,
+//     gif: Horse4,
+//   },
+//   {
+//     name: 'American Pharoah',
+//     number: 5,
+//     gif: Horse5,
+//   },
+//   {
+//     name: 'Justify',
+//     number: 6,
+//     gif: Horse6,
+//   },
+//   {
+//     name: 'Citation',
+//     number: 7,
+//     gif: Horse7,
+//   },
+//   {
+//     name: 'Count Fleet',
+//     number: 8,
+//     gif: Horse8,
+//   },
+//   {
+//     name: 'Assault',
+//     number: 9,
+//     gif: Horse9,
+//   },
+//   {
+//     name: 'Whirlaway',
+//     number: 10,
+//     gif: Horse10,
+//   },
+// ];
+
+// const Leaderboard = () => {
+//   const [raceTime, setRaceTime] = useState(30); // default race time of 30 seconds
+//   const [raceStarted, setRaceStarted] = useState(false);
+//   const [raceFinished, setRaceFinished] = useState(false);
+//   const [horsesState, setHorsesState] = useState(horses.slice(0, 4).map((horse, index) => ({
+//     ...horse,
+//     position: 0,
+//     speed: Math.floor(Math.random() * 10) + 1, // random speed between 1 and 10
+//     distance: 0,
+//     odds: Math.floor(Math.random() * 10) + 1, // random odds between 1 and 10
+//     rank: null,
+//   })));
+//   const [raceDuration, setRaceDuration] = useState(30); // default race duration of 30 seconds
+//   const [selectedHorses, setSelectedHorses] = useState(4); // default number of horses in the race is 4
+
+//   const startRace = () => {
+//     setRaceStarted(true);
+//     setRaceFinished(false);
+//     setHorsesState(horses.slice(0, selectedHorses).map(horse => ({
+//       ...horse,
+//       position: 0,
+//       distance: 0,
+//       rank: null,
+//       speed: Math.floor(Math.random() * 10) + 1,
+//     })));
+//   };
+
+//   const resetRace = () => {
+//     setRaceStarted(false);
+//     setRaceFinished(false);
+//     setRaceTime(30);
+//     setHorsesState(horses.slice(0, selectedHorses).map((horse, index) => ({
+//       ...horse,
+//       position: 0,
+//       distance: 0,
+//       rank: null,
+//       speed: Math.floor(Math.random() * 10) + 1,
+//       })));
+//       };
+      
+//       useEffect(() => {
+//       let timer = null;
+//       if (raceStarted && !raceFinished && raceTime > 0) {
+//         timer = setInterval(() => {
+//           setRaceTime(time => time - 1);
+//         }, 1000);
+//       }
+      
+//       if (raceTime === 0) {
+//         setRaceFinished(true);
+//         clearInterval(timer);
+      
+//         // set rank of each horse based on their position
+//         const sortedHorses = horsesState.slice().sort((a, b) => b.position - a.position);
+//         setHorsesState(sortedHorses.map((horse, index) => ({
+//           ...horse,
+//           rank: index + 1,
+//         })));
+//       }
+      
+//       return () => clearInterval(timer);
+//     }, [raceTime, raceStarted, raceFinished, horsesState]);
+
+//     const updateDistance = (horseIndex) => {
+//     setHorsesState(horsesState.map((horse, index) => {
+//     if (index === horseIndex) {
+//     const newDistance = horse.distance + horse.speed;
+//     const newPosition = Math.floor(newDistance / 10);
+//     return {
+//     ...horse,
+//     position: newPosition,
+//     distance: newDistance,
+//     };
+//     }
+//     return horse;
+//     }));
+//     };
     
-    export default Leaderboard;
+//     useEffect(() => {
+//     let interval = null;
+//     if (raceStarted && !raceFinished) {
+//       interval = setInterval(() => {
+//         horsesState.forEach((horse, index) => {
+//           // update distance of each horse
+//           updateDistance(index);
+//         });
+//       }, 1000);
+//     }
+    
+//     if (raceFinished) {
+//       clearInterval(interval);
+//     }
+    
+//     return () => clearInterval(interval);
+//   }, [raceStarted, raceFinished, horsesState]);
+
+//   const handleSelectChange = (event) => {
+//   setSelectedHorses(parseInt(event.target.value));
+//   };
+  
+//   return (
+//   <div className="leaderboard">
+//   <h1>Horse Racing Leaderboard</h1>
+//   <div className="options">
+//   <label htmlFor="raceTime">Race Time (seconds):</label>
+//   <input type="number" id="raceTime" name="raceTime" min="10" max="60" value={raceDuration} onChange={(e) => setRaceDuration(parseInt(e.target.value))} />
+//   <label htmlFor="numHorses">Number of Horses:</label>
+//   <select id="numHorses" name="numHorses" value={selectedHorses} onChange={handleSelectChange}>
+//   <option value="4">4</option>
+//   <option value="5">5</option>
+//   <option value="6">6</option>
+//   <option value="7">7</option>
+//   <option value="8">8</option>
+//   <option value="9">9</option>
+//   <option value="10">10</option>
+//   </select>
+//   <button onClick={startRace} disabled={raceStarted || raceFinished}>Start Race</button>
+//   <button onClick={resetRace} disabled={!raceStarted || raceFinished}>Reset Race</button>
+//   </div>
+//   <div className="raceTrack">
+//   {horsesState.map((horse, index) => (
+//   <div key={index} className={`horse horse${index + 1}`}>
+//   <img src={horse.gif} alt={horse.name} />
+//   <div className="horseName">{horse.name}</div>
+//   <div className="horseOdds">Odds: {horse.odds}</div>
+//   {raceFinished && <div className="horseRank">Rank: {horse.rank}</div>}
+//   </div>
+//   ))}
+// </div>
+// {raceStarted && !raceFinished && (
+// <div className="raceTimer">
+// <h2>Time Remaining: {raceTime} seconds</h2>
+// </div>
+// )}
+// {raceFinished && (
+// <div className="finalResults">
+// <h2>Final Results</h2>
+// <ol>
+// {horsesState.map((horse, index) => (
+// <li key={index}>{horse.rank}. {horse.name}</li>
+// ))}
+// </ol>
+// </div>
+// )}
+// </div>
+// );
+// };
+// export default Leaderboard;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import Horse1 from './images/horse (1).gif';
+// import Horse2 from './images/horse (2).gif';
+// import Horse3 from './images/horse (3).gif';
+// import Horse4 from './images/horse (4).gif';
+// import Horse5 from './images/horse (5).gif';
+// import Horse6 from './images/horse (6).gif';
+// import Horse7 from './images/horse (7).gif';
+// import Horse8 from './images/horse (8).gif';
+// import Horse9 from './images/horse (9).gif';
+// import Horse10 from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+// const horses = [
+//   {
+//     name: 'Secretariat',
+//     number: 1,
+//     gif: Horse1,
+//   },
+//   {
+//     name: 'Man o\' War',
+//     number: 2,
+//     gif: Horse2,
+//   },
+//   {
+//     name: 'Seattle Slew',
+//     number: 3,
+//     gif: Horse3,
+//   },
+//   {
+//     name: 'Affirmed',
+//     number: 4,
+//     gif: Horse4,
+//   },
+//   {
+//     name: 'American Pharoah',
+//     number: 5,
+//     gif: Horse5,
+//   },
+//   {
+//     name: 'Justify',
+//     number: 6,
+//     gif: Horse6,
+//   },
+//   {
+//     name: 'Citation',
+//     number: 7,
+//     gif: Horse7,
+//   },
+//   {
+//     name: 'Count Fleet',
+//     number: 8,
+//     gif: Horse8,
+//   },
+//   {
+//     name: 'Assault',
+//     number: 9,
+//     gif: Horse9,
+//   },
+//   {
+//     name: 'Whirlaway',
+//     number: 10,
+//     gif: Horse10,
+//   },
+// ];
+
+// const Leaderboard = () => {
+//   const [raceTime, setRaceTime] = useState(30); // default race time of 30 seconds
+//   const [raceStarted, setRaceStarted] = useState(false);
+//   const [raceFinished, setRaceFinished] = useState(false);
+//   const [horsesState, setHorsesState] = useState(horses.slice(0, 4).map((horse, index) => ({
+//     ...horse,
+//     position: 0,
+//     speed: Math.floor(Math.random() * 10) + 1, // random speed between 1 and 10
+//     distance: 0,
+//     odds: Math.floor(Math.random() * 10) + 1, // random odds between 1 and 10
+//     rank: null,
+//   })));
+//   const [raceDuration, setRaceDuration] = useState(30); // default race duration of 30 seconds
+//   const [selectedHorses, setSelectedHorses] = useState(4); // default number of horses in the race is 4
+
+//   const startRace = () => {
+//     setRaceStarted(true);
+//     setRaceFinished(false);
+//     setHorsesState(horses.slice(0, selectedHorses).map(horse => ({
+//       ...horse,
+//       position: 0,
+//       distance: 0,
+//       rank: null,
+//       speed: Math.floor(Math.random() * 10) + 1,
+// //////////////////////////////////////////////////////////////////////////////////////
+//     })));
+//   };
+  
+//   const resetRace = () => {
+//   setRaceStarted(false);
+//   setRaceFinished(false);
+//   setHorsesState(horses.slice(0, selectedHorses).map((horse, index) => ({
+//   ...horse,
+//   position: 0,
+//   distance: 0,
+//   rank: null,
+//   speed: Math.floor(Math.random() * 10) + 1,
+//   odds: Math.floor(Math.random() * 10) + 1,
+//   })));
+//   };
+  
+//   const handleSelectChange = e => {
+//   setSelectedHorses(parseInt(e.target.value));
+//   };
+  
+//   useEffect(() => {
+//   const interval = setInterval(() => {
+//   if (raceStarted && !raceFinished) {
+//   setRaceTime(prevRaceTime => prevRaceTime - 1);
+//   }
+//   }, 1000);
+// ///////////////////////////////////////////////////////////////////////////////////
+
+// if (raceTime === 0) {
+//   setRaceFinished(true);
+//   clearInterval(interval);
+// }
+
+// return () => clearInterval(interval);
+
+// }, [raceStarted, raceFinished, raceTime]);
+
+// useEffect(() => {
+// if (raceStarted && !raceFinished) {
+// const interval = setInterval(() => {
+// setHorsesState(prevHorsesState => {
+// const updatedHorsesState = prevHorsesState.map(horse => {
+// const newDistance = horse.distance + horse.speed;
+// const newPosition = Math.floor(newDistance / 10);
+// const updatedHorse = {
+// ...horse,
+// distance: newDistance,
+// position: newPosition,
+// };
+// if (newPosition >= 100 && !horse.rank) {
+//   updatedHorse.rank = prevHorsesState.filter(h => h !== horse && h.position >= 100).length + 1;
+// }
+
+// return updatedHorse;
+// });
+
+// if (updatedHorsesState.filter(horse => horse.rank !== null).length === selectedHorses) {
+// setRaceFinished(true);
+// }
+
+// return updatedHorsesState;
+// });
+// }, 1000);
+
+// return () => clearInterval(interval);
+// }
+// }, [raceStarted, raceFinished, selectedHorses]);
+
+// return (
+// <div className="leaderboard">
+// <h1>Horse Racing Leaderboard</h1>
+// <div className="race-info">
+// <div className="race-status">
+// <p>{raceStarted ? 'Race in progress' : 'Race has not started'}</p>
+// <p>{`raceFinished ? 'Race finished' : Time remaining: ${raceTime} seconds`}</p>
+// </div>
+// <div className="race-actions">
+// {!raceStarted && !raceFinished && (
+// <>
+// <label htmlFor="numHorses">Number of horses:</label>
+// <select id="numHorses" value={selectedHorses} onChange={handleSelectChange}>
+// {[4, 5, 6, 7, 8, 9, 10].map(num => (
+// <option key={num} value={num}>
+// {num}
+// </option>
+// ))}
+// </select>
+// <button onClick={startRace}>Start Race</button>
+// </>
+// )}
+// {(raceStarted || raceFinished) && (
+// <button onClick={resetRace}>Reset Race</button>
+// )}
+// </div>
+// </div>
+// <div className="race-track">
+// {horsesState.map(horse => (
+// <div key={`horse.number} className={horse horse${horse.number} pos${horse.position}`}>
+// <img src={horse.gif} alt={horse.name} />
+// <p>{horse.name}</p>
+// <p>Speed: {horse.speed}</p>
+// <p>Odds: {horse.odds}</p>
+// <p>Distance: {horse.distance}</p>
+// <p>Rank: {horse.rank ? horse.rank : '-'}</p>
+// </div>
+// ))}
+// </div>
+// </div>
+// );
+// };
+// export default Leaderboard;
+
+
+
+
+
+
+
+
+
+
+
+// =============================================
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import Horse1Gif from './images/horse (1).gif';
+// import Horse2Gif from './images/horse (2).gif';
+// import Horse3Gif from './images/horse (3).gif';
+// import Horse4Gif from './images/horse (4).gif';
+// import Horse5Gif from './images/horse (5).gif';
+// import Horse6Gif from './images/horse (6).gif';
+// import Horse7Gif from './images/horse (7).gif';
+// import Horse8Gif from './images/horse (8).gif';
+// import Horse9Gif from './images/horse (9).gif';
+// import Horse10Gif from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+// const horses = [
+//   { name: 'Horse 1', number: 1, gif: Horse1Gif },
+//   { name: 'Horse 2', number: 2, gif: Horse2Gif },
+//   { name: 'Horse 3', number: 3, gif: Horse3Gif },
+//   { name: 'Horse 4', number: 4, gif: Horse4Gif },
+//   { name: 'Horse 5', number: 5, gif: Horse5Gif },
+//   { name: 'Horse 6', number: 6, gif: Horse6Gif },
+//   { name: 'Horse 7', number: 7, gif: Horse7Gif },
+//   { name: 'Horse 8', number: 8, gif: Horse8Gif },
+//   { name: 'Horse 9', number: 9, gif: Horse9Gif },
+//   { name: 'Horse 10', number:10, gif: Horse10Gif }
+// ];
+
+// const Leaderboard = () => {
+//   const [raceTime, setRaceTime] = useState(30); // default race time of 30 seconds
+//   const [raceStarted, setRaceStarted] = useState(false);
+//   const [raceFinished, setRaceFinished] = useState(false);
+//   const [horsesState, setHorsesState] = useState(horses.map((horse, index) => ({
+//     ...horse,
+//     position: 0,
+//     speed: Math.floor(Math.random() * 10) + 1, // random speed between 1 and 10
+//     distance: 0,
+//     odds: Math.floor(Math.random() * 10) + 1, // random odds between 1 and 10
+//     rank: null,
+//   })));
+
+//   const startRace = () => {
+//     setRaceStarted(true);
+//     setRaceFinished(false);
+//     horses(horsesState.map(horse => ({
+//       ...horse,
+//       position: 0,
+//       distance: 0,
+//       rank: null,
+//     })));
+//   };
+
+//   const finishRace = () => {
+//     setRaceStarted(false);
+//     setRaceFinished(true);
+//   };
+
+//   useEffect(() => {
+//     let intervalId;
+//     if (raceStarted) {
+//       intervalId = setInterval(() => (
+//         setHorsesState(prevHorsesState => {
+//           // check if any horse has reached the finish line
+//           const finishedHorses = prevHorsesState.filter(horse => horse.distance >= 100);
+//           if (finishedHorses.length === prevHorsesState.length) {
+//             // all horses finished the race
+//             finishRace();
+//             clearInterval(intervalId);
+//             return prevHorsesState;
+//           }
+    
+//           // update each horse's distance based on its speed
+//           const updatedHorsesState = prevHorsesState.map(horse => {
+//             const distance = horse.distance + horse.speed;
+//             const position = Math.floor(distance / 10);
+    
+//             return {
+//               ...horse,
+//               distance,
+//               position,
+//             };
+//           });
+    
+//           // sort horses by distance and assign their rank
+//           const sortedHorses = updatedHorsesState.sort((a, b) => b.distance - a.distance);
+//           const rankedHorses = sortedHorses.map((horse, index) => ({
+//             ...horse,
+//             rank: index + 1,
+//           }));
+    
+//           // update state with new horses data
+//           return rankedHorses;
+//         })), 1000);
+//       }
+    
+//       return () => clearInterval(intervalId);
+//     }, [raceStarted]);
+    
+//     return (
+//       <div className="leaderboard">
+//         <h1>Virtual Horse Racing</h1>
+//         <div className="race-time">
+//           <span>Race Time:</span>
+//           <input
+//             type="number"
+//             value={raceTime}
+//             onChange={(event) => setRaceTime(event.target.value)}
+//           />
+//           <button onClick={startRace} disabled={raceStarted}>
+//             {raceStarted ? 'Race in progress' : 'Start race'}
+//           </button>
+//         </div>
+//         <div className="horses">
+//           {horsesState.map(horse => (
+//             <div key={horse.number} className={`horse horse-${horse.number}`}>
+//               <div className="horse-name">{horse.name}</div>
+//               <img src={horse.gif} alt={horse.name} style={{ left: `${horse.position}%` }} />
+//               <div className="horse-odds">Odds: {horse.odds} to 1</div>
+//               {raceFinished && <div className="horse-rank">Rank: {horse.rank}</div>}
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     );
+//   };
+
+//   export default Leaderboard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import Horse1Gif from './images/horse (1).gif';
+// import Horse2Gif from './images/horse (2).gif';
+// import Horse3Gif from './images/horse (3).gif';
+// import Horse4Gif from './images/horse (4).gif';
+// import Horse5Gif from './images/horse (5).gif';
+// import Horse6Gif from './images/horse (6).gif';
+// import Horse7Gif from './images/horse (7).gif';
+// import Horse8Gif from './images/horse (8).gif';
+// import Horse9Gif from './images/horse (9).gif';
+// import Horse10Gif from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+// const horses = [
+//   { name: 'Horse 1', number: 1, gif: Horse1Gif },
+//   { name: 'Horse 2', number: 2, gif: Horse2Gif },
+//   { name: 'Horse 3', number: 3, gif: Horse3Gif },
+//   { name: 'Horse 4', number: 4, gif: Horse4Gif },
+//   { name: 'Horse 5', number: 5, gif: Horse5Gif },
+//   { name: 'Horse 6', number: 6, gif: Horse6Gif },
+//   { name: 'Horse 7', number: 7, gif: Horse7Gif },
+//   { name: 'Horse 8', number: 8, gif: Horse8Gif },
+//   { name: 'Horse 9', number: 9, gif: Horse9Gif },
+//   { name: 'Horse 10', number:10, gif: Horse10Gif }
+// ];
+
+// const Leaderboard = () => {
+//   const [raceTime, setRaceTime] = useState(30); // default race time of 30 seconds
+//   const [raceStarted, setRaceStarted] = useState(false);
+//   const [raceFinished, setRaceFinished] = useState(false);
+//   const [horsesState, setHorsesState] = useState(horses.map((horse, index) => ({
+//     ...horse,
+//     position: 0,
+//     speed: Math.floor(Math.random() * 10) + 1, // random speed between 1 and 10
+//     distance: 0,
+//     odds: Math.floor(Math.random() * 10) + 1, // random odds between 1 and 10
+//     rank: null,
+//   })));
+
+//   const startRace = () => {
+//     setRaceStarted(true);
+//     setRaceFinished(false);
+//     setHorsesState(horsesState.map(horse => ({
+//       ...horse,
+//       position: 0,
+//       distance: 0,
+//       rank: null,
+//     })));
+//   };
+
+//   const finishRace = () => {
+//     setRaceStarted(false);
+//     setRaceFinished(true);
+//   };
+
+//   useEffect(() => {
+//     let intervalId;
+//     if (raceStarted) {
+//       intervalId = setInterval(() => {
+//         setHorsesState(prevHorsesState => {
+//           const updatedHorsesState = prevHorsesState.map(horse => {
+//             let newDistance = horse.distance + (horse.speed / 10);
+//             let newPosition = Math.round(newDistance / 10 * window.innerWidth);
+//             if (newPosition > window.innerWidth - 100) {
+//               newDistance = window.innerWidth - 100;
+//             }
+//             return {
+//               ...horse,
+//               position:newPosition,
+//               distance: newDistance,
+//               };
+//               });
+//               const sortedHorsesState = [...updatedHorsesState].sort((a, b) => b.distance - a.distance);
+//               let rank = 1;
+//               sortedHorsesState.forEach((horse, index) => {
+//                 if (index > 0 && horse.distance !== sortedHorsesState[index - 1].distance) {
+//                   rank++;
+//                 }
+//                 updatedHorsesState.find(updatedHorse => updatedHorse.number === horse.number).rank = rank;
+//               });
+        
+//               if (updatedHorsesState[0].distance >= window.innerWidth - 100) {
+//                 clearInterval(intervalId);
+//                 finishRace();
+//               }
+        
+//               return updatedHorsesState;
+//             });
+//           }, 100);
+//         }
+//         return () => clearInterval(intervalId);
+        
+//       }, [raceStarted]);
+
+//       return (
+//       <div className="leaderboard-container">
+//       <h1>React Horse Race</h1>
+//       <div className="race-info">
+//       <p>Race time: {raceTime} seconds</p>
+//       {raceStarted && <p>Race is in progress...</p>}
+//       {raceFinished && <p>Race has finished!</p>}
+//       {!raceStarted && !raceFinished && <button onClick={startRace}>Start Race</button>}
+//       </div>
+//       <div className="race-track">
+//       {horsesState.map(horse => (
+//       <div key={horse.number} className="horse-container" style={{ left: horse.position }}>
+//       <img src={horse.gif} alt={horse.name} />
+//       <p>{horse.name} ({horse.odds} to 1)</p>
+//       {horse.rank && <p>#{horse.rank}</p>}
+//       </div>
+//       ))}
+//       </div>
+//       </div>
+//       );
+//       };
+      
+//       export default Leaderboard;
+
+
+
+// ================================================
+
+// import React, { useState, useEffect } from 'react';
+// import Horse1Gif from './images/horse (1).gif';
+// import Horse2Gif from './images/horse (2).gif';
+// import Horse3Gif from './images/horse (3).gif';
+// import Horse4Gif from './images/horse (4).gif';
+// import Horse5Gif from './images/horse (5).gif';
+// import Horse6Gif from './images/horse (6).gif';
+// import Horse7Gif from './images/horse (7).gif';
+// import Horse8Gif from './images/horse (8).gif';
+// import Horse9Gif from './images/horse (9).gif';
+// import Horse10Gif from './images/horse (10).gif';
+// import './Leaderboard.css';
+
+
+// const horses = [
+//   { name: 'Horse 1', number: 1, gif: Horse1Gif },
+//   { name: 'Horse 2', number: 2, gif: Horse2Gif },
+//   { name: 'Horse 3', number: 3, gif: Horse3Gif },
+//   { name: 'Horse 4', number: 4, gif: Horse4Gif },
+//   { name: 'Horse 5', number: 5, gif: Horse5Gif },
+//   { name: 'Horse 6', number: 6, gif: Horse6Gif },
+//   { name: 'Horse 7', number: 7, gif: Horse7Gif },
+//   { name: 'Horse 8', number: 8, gif: Horse8Gif },
+//   { name: 'Horse 9', number: 9, gif: Horse9Gif },
+//   { name: 'Horse 10', number:10, gif: Horse10Gif }
+// ];
+
+// const Leaderboard = () => {
+//   const [selectedHorses, setSelectedHorses] = useState([]);
+//   const [raceDuration, setRaceDuration] = useState(null);
+//   const [trackLength, setTrackLength] = useState(null);
+//   const [racePositions, setRacePositions] = useState([]);
+
+//   useEffect(() => {
+//     const duration = (Math.floor(Math.random() * 8) + 12) * 1000; // 12-20 seconds intervals
+//     const length = (Math.floor(Math.random() * 16) + 5) * 0.125; // 0.625-2.5 miles intervals
+//     setRaceDuration(duration);
+//     setTrackLength(length);
+//   }, []);
+
+//   const startRace = () => {
+//     const race = selectedHorses.map((horse) => ({
+//       ...horse,
+//       time: 0,
+//       distance: 0,
+//       position: 0
+//     }));
+
+//     const interval = setInterval(() => {
+//       const newRace = [...race];
+//       newRace.forEach((horse) => {
+//         horse.distance += Math.floor(Math.random() * 10) + 10;
+//         horse.time += 100;
+//         const position = newRace.filter((h) => h.distance > horse.distance).length + 1;
+//         horse.position = position;
+//       });
+
+//       if (race.some((horse) => horse.distance >= trackLength * 1609)) {
+//         clearInterval(interval);
+//         const sortedRace = [...race].sort((a, b) => a.time - b.time);
+//         setRacePositions(sortedRace);
+//       } else {
+//         setRacePositions(newRace);
+//       }
+//     }, (Math.floor(Math.random() * 7) + 1) * 1000); // 1-7 seconds intervals
+//   };
+
+//   const resetGame = () => {
+//     setSelectedHorses([]);
+//     setRaceDuration(30000);
+//     setTrackLength(2);
+//     setRacePositions([]);
+//   };
+
+//   return (
+//     <div className="App">
+//       <h1>Horse Racing Leaderboard</h1>
+//       <div className="input-group">
+//         <label htmlFor="horse-select">Select Horses:</label>
+//         <select
+//           id="horse-select"
+//           multiple
+//           value={selectedHorses.map((horse) => horse.number)}
+//           onChange={(e) =>
+//             setSelectedHorses(
+//               Array.from(e.target.selectedOptions, (option) =>
+//                 horses.find((horse) => horse.number === Number(option.value))
+//               )
+//               )
+//             }
+//           >
+//             {horses.map((horse) => (
+//               <option key={horse.number} value={horse.number}>
+//                 {horse.name}
+//               </option>
+//             ))}
+//           </select>
+//         </div>
+//         <div className="input-group">
+//           <label htmlFor="race-duration-input">Race Duration:</label>
+//           <input
+//             id="race-duration-input"
+//             type="number"
+//             value={raceDuration / 1000 || ""}
+//             min={12}
+//             max={60}
+//             step={1}
+//             onChange={(e) => setRaceDuration(e.target.value * 1000)}
+//           />
+//           <span>seconds</span>
+//         </div>
+//         <div className="input-group">
+//           <label htmlFor="track-length-input">Track Length:</label>
+//           <input
+//             id="track-length-input"
+//             type="number"
+//             value={trackLength || ""}
+//             min={0.625}
+//             max={2.5}
+//             step={0.125}
+//             onChange={(e) => setTrackLength(e.target.value)}
+//           />
+//           <span>miles</span>
+//         </div>
+//         <button onClick={startRace} disabled={!selectedHorses.length || !raceDuration || !trackLength}>
+//           Start Race
+//         </button>
+//         <button onClick={resetGame}>Reset</button>
+//         {racePositions.length > 0 && (
+//           <div className="leaderboard">
+//             <h2>Final Leaderboard</h2>
+//             {racePositions.map((horse) => (
+//               <div key={horse.number} className="horse">
+//                 <img src={horse.gif} alt={horse.name} />
+//                 <div className="info">
+//                   <h3>{horse.name}</h3>
+//                   {/* <p>Distance: {horse.distance / 1609} miles</p>
+//                   <p>Time: {horse.time / 1000} seconds</p> */}
+//                   {/* <p>Position: {horse.position}</p> */}
+//                  <p>{horse.position}</p>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         )}
+//       </div>
+//       );
+//     };
+    
+//     export default Leaderboard;
+
+
+// ===========================================================================================
 // WORKS PERFECTLY  NEED CSS UPGARDED
 // import React, { useState, useEffect } from "react";
-// import HorseImage from "./images/horse running (1).gif"; // Horse images folder
+// import HorseImage from "./images/horse (1).gif"; // Horse images folder
 // import "./Leaderboard.css"; // Leaderboard styles
 
 // const horses = [
@@ -439,11 +2789,11 @@ const Leaderboard = () => {
 // const MAX_TRACK_LENGTH = 2.5; // in miles
 
 // const HORSES = [  
-// {name: 'Horse 1', number: 1, image:'./images/horse running (1).gif'},  
-// {name: 'Horse 2', number: 2, image:'./images/horse running (2).gif'}, 
-// {name: 'Horse 3', number: 3, image:'./images/horse running (3).gif'},
-// {name: 'Horse 4', number: 4, image:'./images/horse running (4).gif'},
-// {name: 'Horse 5', number: 5, image:'./images/horse running (5).gif'}
+// {name: 'Horse 1', number: 1, image:'./images/horse (1).gif'},  
+// {name: 'Horse 2', number: 2, image:'./images/horse (2).gif'}, 
+// {name: 'Horse 3', number: 3, image:'./images/horse (3).gif'},
+// {name: 'Horse 4', number: 4, image:'./images/horse (4).gif'},
+// {name: 'Horse 5', number: 5, image:'./images/horse (5).gif'}
 // ];
 
 // function Leaderboard() {
@@ -2186,7 +4536,7 @@ const Leaderboard = () => {
 
 
 // import React, { useState, useEffect, useRef } from "react";
-// import "..//components/styles/Leaderboard.css";
+// import "./Leaderboard.css";
 
 // const Leaderboard = () => {
 //   const [trackLength, setTrackLength] = useState(2); // track length in 1/8 mile increments
