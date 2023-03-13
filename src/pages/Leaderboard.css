@@ -1,149 +1,321 @@
 
-/* 
-body {
-  background-color: #f2f2f2;
-} */
+/* Add this CSS to the file that renders the horse race game */
+/* Change the following values to fit your design */
 
-.race {
+.leaderboard {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  align-items: left;
-  height: 90vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+select {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.select-container p {
+  margin-right: 1rem;
+}
+
+.race-container {
+  position: relative;
+  width: 1000%;
+  height: 8rem;
+  margin-bottom: 1rem;
+  border: 1px solid black;
+  background-color: #b2b2b2;
 }
 
 .horse {
-  width: 0px;
-  height:0px;
-  /* background-color: #fff; */
-  border-radius: none;
-  position: relative;
-  border-style: none;
-  border:none;
-  margin: 0 0px;
+  position: absolute;
+  height: 20rem;
+  bottom: 0;
+  animation-duration: 30s; /* Change the animation duration to match the race duration */
+  animation-fill-mode: forwards;
 }
 
-/* .horse:before {
-  content: "";
-  width: 0px;
-  height: 0px;
-  background-color: #000;
-  border-radius: 50%;
-  position: absolute;
-  top: 25px;
-  left: 25px;
-} */
+/* Add animation styles for each horse */
+@keyframes horse1 {
+  6% {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+@keyframes horse2 {
+  15% {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+@keyframes horse3 {
+  23% {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+@keyframes horse4 {
+  13% {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+@keyframes horse5 {
+  11 {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+@keyframes horse6 {
+  27% {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+@keyframes horse7 {
+  17% {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+@keyframes horse8 {
+  23% {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+@keyframes horse9 {
+  9% {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+@keyframes horse10 {
+  14% {
+    left: -10%;
+  }
+  100% {
+    left: 85%;
+  }
+}
+
+/* Apply the appropriate animation to each horse */
+.horse1 {
+  animation-name: horse1;
+}
+
+.horse2 {
+  animation-name: horse2;
+}
+
+.horse3 {
+  animation-name: horse3;
+}
+
+.horse4 {
+  animation-name: horse4;
+}
+
+.horse5 {
+  animation-name: horse5;
+}
+
+.horse6 {
+  animation-name: horse6;
+}
+
+.horse7 {
+  animation-name: horse7;
+}
+
+.horse8 {
+  animation-name: horse8;
+}
+
+.horse9 {
+  animation-name: horse9;
+}
+
+.horse10 {
+  animation-name: horse10;
+}
+
+
+
+
+/* ////////////////////////////////////// */
+
 /* 
-.track {
-  width: 100%;
-  height: 10px;
-  background-color: #ccc;
-  position: relative;
-  margin-top: 5px;
-} */
-
-/* .track:before {
-  content: "";
-  width: 0px;
-  height: 100%;
-  background-color: #fff;
-  position: absolute;
-  left: 0;
-} */
-
-/* Animation */
-@keyframes horse-run {
-  from {left: 0;}
-  to {left: calc(100% - 100px);}
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.horse:nth-child(1) { animation: horse-run 26s linear 46.0s;}
-.horse:nth-child(2) { animation: horse-run 22s linear 15.5s; }
-.horse:nth-child(3) { animation: horse-run 24s linear 17s; }
-.horse:nth-child(4) { animation: horse-run 29s linear 37.5s; }
-.horse:nth-child(5) { animation: horse-run 22s linear 12s; }
-.horse:nth-child(6) { animation: horse-run 12s linear 18.5s; }
-.horse:nth-child(7) { animation: horse-run 28s linear 25s; }
-.horse:nth-child(8) { animation: horse-run 21s linear 14.5s; }
-.horse:nth-child(9) { animation: horse-run 22s linear 18s; }
-.horse:nth-child(10) { animation: horse-run 35s linear 18.5s; }
+.horse {
+  position: absolute;
+  bottom: 0;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation-name: run;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(6);
+  transform: translateX(-150px);
+  transition: transform 1s linear;
+}
 
-
-
-
-
-/* body {
-    background-color: #f2f2f2;
+@keyframes run {
+  0% {
+    background-image: url("./images/horse (1).gif");
   }
-  
-  .race {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    align-items: left;
-    height: 40vh;
+  16.67% {
+    background-image: url("./images/horse (2).gif");
   }
-  
-  .horse {
-    width: 3px;
-    height:3px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: relative;
-    margin: 0 10px;
+  33.33% {
+    background-image: url("./images/horse (3).gif");
   }
-  
+  50% {
+    background-image: url("./images/horse (4).gif");
+  }
+  66.67% {
+    background-image: url("./images/horse (5).gif");
+  }
+  83.33% {
+    background-image: url("./images/horse (6).gif");
+  }
+  100% {
+    background-image: url("./images/horse (1).gif");
+  }
+}
 
-  
-  .track {
-    width: 100%;
-    height: 20px;
-    background-color: #ccc;
-    position: relative;
-    margin-top: 50px;
-  }
-  
-  .track:before {
-    content: "";
-    width: 20px;
-    height: 100%;
-    background-color: #fff;
-    position: absolute;
-    left: 0;
-  }
-   */
-  /* Animation */
-  /* @keyframes horse-run {
-    from {left: 0;}
-    to {left: calc(100% - 100px);}
-  }
-  
-  .horse:nth-child(1) { animation: horse-run 16s linear infinite 3.0;}
-  .horse:nth-child(2) { animation: horse-run 15s linear infinite 5.5s; }
-  .horse:nth-child(3) { animation: horse-run 17s linear infinite 1s; }
-  .horse:nth-child(4) { animation: horse-run 14s linear infinite 1.5s; }
-  .horse:nth-child(5) { animation: horse-run 12s linear infinite 2s; }
-  .horse:nth-child(6) { animation: horse-run 14s linear infinite 2.5s; }
-  .horse:nth-child(7) { animation: horse-run 16s linear infinite 3s; }
-  .horse:nth-child(8) { animation: horse-run 13s linear infinite 3.5s; }
-  .horse:nth-child(9) { animation: horse-run 17s linear infinite 4s; }
-  .horse:nth-child(10) { animation: horse-run 15s linear infinite 4.5s; }
-   */
+.horse-1 {
+  bottom: 0;
+  background-image: url("./images/horse (1).gif");
+}
 
-    /* .horse:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    background-color: #000;
-    border-radius: 50%;
-    position: absolute;
-    top: 25px;
-    left: 25px;
-  } */
+.horse-2 {
+  bottom: 150px;
+  background-image: url("./images/horse (2).gif");
+}
+
+.horse-3 {
+  bottom: 300px;
+  background-image: url("./images/horse (3).gif");
+}
+
+.horse-4 {
+  bottom: 450px;
+  background-image: url("./images/horse (4).gif");
+}
+
+.horse-5 {
+  bottom: 600px;
+  background-image: url("./images/horse (5).gif");
+}
+
+.horse-6 {
+  bottom: 750px;
+  background-image: url("./images/horse (6).gif");
+}
+
+.horse-7 {
+  bottom: 900px;
+  background-image: url("./images/horse (7).gif");
+}
+
+.horse-8 {
+  bottom: 1050px;
+  background-image: url("./images/horse (8).gif");
+}
+
+.horse-9 {
+  bottom: 1200px;
+  background-image: url("./images/horse (9).gif");
+}
+
+.horse-10 {
+  bottom: 1350px;
+  background-image: url("./images/horse (10).gif");
+}
+
+.race-container {
+  position: relative;
+  width: 150px;
+  height: 1500px;
+  border: 1px solid black;
+  margin-top: 50px;
+}
+
+.position {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.position span {
+  font-weight: bold;
+}
+
+.finish-line {
+  position: absolute;
+  bottom: 100%;
+  width: 100%;
+  height: 5px;
+  background-color: black;
+  z-index: 2;
+} */
+
+
+
+
 
   /* ================================================================= */
-
-/* .App {
+/* 
+.App {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -253,6 +425,9 @@ body {
     font-size: 1rem;
     margin-bottom: 0.5rem;
   } */
+/* ////////////////////////////////////////// */
+
+
   /* Some highlights of this CSS include:
   
   Setting a consistent font family, size, and color for the whole app
